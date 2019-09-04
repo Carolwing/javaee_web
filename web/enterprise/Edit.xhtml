@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EnterpriseEditDlg" widgetVar="EnterpriseEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditEnterpriseTitle}">
+            <h:form id="EnterpriseEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{enterpriseController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditEnterpriseLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{enterpriseController.selected.id}" title="#{bundle.EditEnterpriseTitle_id}" required="true" requiredMessage="#{bundle.EditEnterpriseRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditEnterpriseLabel_enterpriseName}" for="enterpriseName" />
+                        <p:inputText id="enterpriseName" value="#{enterpriseController.selected.enterpriseName}" title="#{bundle.EditEnterpriseTitle_enterpriseName}" required="true" requiredMessage="#{bundle.EditEnterpriseRequiredMessage_enterpriseName}"/>
+                        <p:outputLabel value="#{bundle.EditEnterpriseLabel_enterpriseLogoPath}" for="enterpriseLogoPath" />
+                        <p:inputText id="enterpriseLogoPath" value="#{enterpriseController.selected.enterpriseLogoPath}" title="#{bundle.EditEnterpriseTitle_enterpriseLogoPath}" required="true" requiredMessage="#{bundle.EditEnterpriseRequiredMessage_enterpriseLogoPath}"/>
+                        <p:outputLabel value="#{bundle.EditEnterpriseLabel_enterpriseAddress}" for="enterpriseAddress" />
+                        <p:inputText id="enterpriseAddress" value="#{enterpriseController.selected.enterpriseAddress}" title="#{bundle.EditEnterpriseTitle_enterpriseAddress}" required="true" requiredMessage="#{bundle.EditEnterpriseRequiredMessage_enterpriseAddress}"/>
+                        <p:outputLabel value="#{bundle.EditEnterpriseLabel_enterpriseTel}" for="enterpriseTel" />
+                        <p:inputText id="enterpriseTel" value="#{enterpriseController.selected.enterpriseTel}" title="#{bundle.EditEnterpriseTitle_enterpriseTel}" required="true" requiredMessage="#{bundle.EditEnterpriseRequiredMessage_enterpriseTel}"/>
+                        <p:outputLabel value="#{bundle.EditEnterpriseLabel_userId}" for="userId" />
+                        <p:selectOneMenu id="userId" value="#{enterpriseController.selected.userId}" required="true" requiredMessage="#{bundle.EditEnterpriseRequiredMessage_userId}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{userController.itemsAvailableSelectOne}"
+                                           var="userIdItem"
+                                           itemValue="#{userIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{enterpriseController.update}" value="#{bundle.Save}" update="display,:EnterpriseListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EnterpriseEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EnterpriseEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+
+
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Sign up__2</title>
+                <h:outputStylesheet library="css" name="signup_enterprise_style.css"/>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            <ui:composition template="template.xhtml">
+                <ui:define name="body">
+                    <div class="signup">
+
+                        <h:form class="signup-form">
+                            <p:panel id="panel" class="signup-panel">
+
+                                <h:form>  
+                                    <p:fileUpload fileUploadListener="#{fileUploadView.handleFileUpload}" mode="advanced" dragDropSupport="false" label="选择图片" previewWidth="20" 
+                                                  required="true" requiredMessage="请上传图片"update="messages" sizeLimit="100000" fileLimit="1" allowTypes="/(\.|\/)(jpe?g|png)$/" 
+                                                  class="fileUpload-form" uploadLabel="上传" cancelLabel="取消" />
+
+                                    <p:growl id="messages" showDetail="true" />     
+                                </h:form>
+                                <br/>
+
+                                <p:outputLabel value="企业信息填写" class="signup-outputlable"/>
+
+                                <h:panelGrid columns="3" cellspacing="5" class="signup-panelgrid-row" id="signup-panelgrid">
+                                    <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="EnterpriseLogoPath"/>
+                                    <p:inputText id="EnterpriseLogoPath" value="#{enterpriseController.enterpriseLogoPath}" required="true" maxlength="20" placeholder="上传企业Logo" requiredMessage="请上传企业Logo">
+                                    </p:inputText>
+                                    <p:message for="EnterpriseLogoPath" id="logopath_msgs" class="signup-msgs" display="icon"/>
+
+                                    <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="EnterpriseName"/>
+                                    <p:inputText id="EnterpriseName" value="#{enterpriseController.enterpriseName}" required="true" maxlength="20" placeholder="企业名称" requiredMessage="请输入企业名称">
+                                    </p:inputText>
+                                    <p:message for="EnterpriseName" id="EnterpriseName_msgs" class="signup-msgs" display="icon"/>
+
+                                    <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="EnterpriseAddress"/>
+                                    <p:inputText id="EnterpriseAddress" value="#{enterpriseController.enterpriseAddress}" required="true" maxlength="20" placeholder="企业地址" requiredMessage="请输入企业地址">
+                                    </p:inputText>
+                                    <p:message for="EnterpriseName" id="EnterpriseAddress_msgs" class="signup-msgs" display="icon"/>
+
+                                    <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="EnterpriseTel"/>
+                                    <p:inputText id="EnterpriseTel" value="#{enterpriseController.enterpriseTel}" required="true" maxlength="20" placeholder="企业电话" requiredMessage="请输入企业电话">
+                                    </p:inputText>
+                                    <p:message for="EnterpriseTel" id="EnterpriseTel_msgs" class="signup-msgs" display="icon"/>
+
+
+                                </h:panelGrid>
+
+                                <p:commandButton value="企业信息提交" update="panel" class="signup-btn" action="#{enterpriseController.createEnterprise(userController.current_user)}" icon="pi pi-check" />
+                                <!--<p:commandButton value="注册" class="signup-btn" action="signup.xhtml" />-->
+
+                                <!--<p:outputLabel value="$signup_info.username}"/>-->
+                                <!--<p:commandButton value="注册" update="@all" class="signup-btn" }action="#signup_info.signup" icon="pi pi-check" />-->
+                                <p:messages id="msgs" class="signup-msgs" showDetail="false" showIcon="false"/>
+
+                            </p:panel>
+                        </h:form>
+
+                        <!--                <p:layoutUnit position="center">
+                                            Welcome to PrimeFaces
+                                        </p:layoutUnit>-->
+
+                    </div>
+                </ui:define>
+            </ui:composition>
+        </h:body>
+
+    </f:view>
+</html>
+

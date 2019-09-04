@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <h:outputScript library="js" name="home.js"/>
+         <h:outputStylesheet library="css" name="template.css"/>
+    </h:head>
+
+    <h:body>
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1382864_pmti414wr18.css"></link>  
+        <div class="main">
+            <div id="header" class="header">
+                <ui:insert name="header">
+                    <div class="container">
+                        <h:graphicImage value="#{resource['images:logo.png']}"
+                                        alt="logo"/>
+                        <div class="guide_left" id="guide_left" style="height: 30px;margin-left: 45px;float: left">
+                            <li class="home"><a href="template.xhtml">首页</a></li>
+                            <li class="sign_in"><a href="/">注册商家</a></li>
+                        </div>
+
+                        <div class="guide_right" id="guide_right" style="height: 30px;margin-right: 5px;float: right">
+                            <li class="log_in"><a href="login.xhtml">登录</a></li>
+                            <i class="icon-icon_fabu iconfont" id="icon_login">&#xe606;</i>
+                            <li class="order"><a href="/">我的订单</a></li>
+                            <i class="icon-icon_fabu iconfont" id="icon_order">&#xe875;</i>
+                            <li class="cart"><a href="/">购物车</a></li>  
+                            <i class="icon-icon_fabu iconfont" id="icon_cart">&#xe61a;</i>
+
+                            <h:form class="search">
+                                <p:commandButton class="search-btn" update="username"  action="/"/>
+                                <p:inputText  class="searchbox"  id="username" value="#{login_info.username}" required="true" maxlength="20" placeholder="关键字搜索" requiredMessage="请输入关键字"></p:inputText>                       
+                                
+                            </h:form>
+                            <i class="icon-icon_fabu iconfont" id="icon_search">&#xe607;</i>
+                        </div>
+
+                    </div>                  
+                </ui:insert>
+            </div>
+            <div id="body" class="body">
+                <ui:insert name="body">
+                    <!--< ****************轮播图**************** />-->
+                    <div class="poster">
+                        <div class="banner-group" id="banner-group">
+                            <ul class="banner-ul" id="banner-ul">
+                                <li><a href="#"><img src="resources/images/poster1.jpg" alt=""></img></a></li>
+                                <li><a href="#"><img src="resources/images/poster2.jpg" alt=""></img></a></li>
+                                <li><a href="#"><img src="resources/images/poster3.jpg" alt=""></img></a></li>
+                                <li><a href="#"><img src="resources/images/poster4.jpg" alt=""></img></a></li>
+                            </ul>
+                            <div class="page-control-group">
+                                <ul class="page-control"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login">
+                        <h:form class="login-form">
+                        <p:panel id="panel" class="login-panel">
+                            
+
+                            <p:outputLabel value="密码登录" class="login-outputlable"/>
+                            
+                            <h:panelGrid columns="3" cellspacing="5" class="login-panelgrid-row" id="login-panelgrid">
+                                <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="firstname"/>
+                                <!--<p:outputLabel for="firstname" value="Firstname:" />-->
+                                <p:inputText id="username" value="#{userController.username}" required="true" maxlength="20" placeholder="输入用户名" requiredMessage="请输入用户名">
+                                </p:inputText>
+                                <p:message for="username" id="user_msgs" class="login-msgs" display="icon"/>
+
+                                <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="firstname"/>
+                                <p:password id="password" value="#{userController.password}" required="true" maxlength="20" placeholder="输入密码" requiredMessage="请输入密码">
+                                </p:password>
+                                <p:message for="password" id="password_msgs" class="login-msgs" display="icon"/>
+                            </h:panelGrid>
+
+                            <p:commandButton value="登录" update="panel" class="login-btn" action="#{userController.login('template.xhtml')}" />
+                           
+                            <p:messages id="msgs" class="login-msgs" showDetail="false" showIcon="false"/>
+                            <p:link outcome="user_signup" value="用户注册" class="sign-up-link"/>
+
+                        </p:panel>
+                    </h:form>
+                    </div>
+
+                    <!--< *******************登录块!*********************** />-->
+
+                </ui:insert>     
+            </div>  
+            <div id="footer" class="footer">
+                <ui:insert name="footer">
+                    <div class="detail-group">
+                        <div class="line1">  
+                            <li><a href="#">关于我们</a></li>
+                            <li><a href="#">联系我们</a></li>
+                        </div>
+
+                    </div>
+                </ui:insert>     
+            </div>  
+        </div>    
+    </h:body>
+</html>

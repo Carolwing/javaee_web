@@ -1,0 +1,75 @@
+.main{
+    background-color: white !important;
+    height: 630px !important;
+}
+.body{
+    height: 630px !important;
+}
+
+.footer{
+    position: fixed!important;;
+}
+
+.signup{
+    margin-right: 120px !important;
+    margin-top: 120px !important;    
+    /*height: 200px !important;*/
+}
+
+.signup-form{
+    height: 300px !important;
+    width: 320px!important;
+    align-content: center !important;
+    
+}
+.signup-panel{
+    height: 400px!important;
+    width: 320px !important;
+    margin-left: 400px !important;
+    
+}
+
+.signup-outputlable{
+    /*alignment-adjust: middle;*/
+    /*alignment-baseline: central;*/
+    align-content:center !important;
+    margin-left: 110px !important;
+    line-height:40px !important; 
+}
+
+.signup-panelgrid-row{
+    line-height: 50px !important;
+    font-weight:none !important;
+}
+
+.signup-btn{
+    width: 290px !important;
+    margin-top: 5px !important;
+    align-content: center !important;
+   
+}
+
+
+.signup-msgs{
+    color: #b94a48 !important;
+    background-color: #f2dede !important;
+    vertical-align: bottom !important;
+    font-size:16px !important;
+}
+
+.fileUpload-form{
+    size: 10px;
+}
+
+.ui-fileupload-buttonbar{
+    height: 20px;
+    width: 40px;
+    font-size: 5px;
+}
+.ui-corner-bottom{
+    height: 40px;
+}
+.ui-widget-content{
+    height:20px;
+    width: 50px;
+}
