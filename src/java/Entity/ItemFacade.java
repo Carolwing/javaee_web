@@ -5,8 +5,12 @@
  */
 package Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 /**
@@ -27,5 +31,46 @@ public class ItemFacade extends AbstractFacade<Item> {
     public ItemFacade() {
         super(Item.class);
     }
-    
+
+    //计算随机数
+    public int[] calculateRandom(String tag, int num) {
+        int[] randomArray = {-1, -1, -1, -1,-1};
+        List ran = new ArrayList();
+        Random r = new Random();
+        
+        if (num != 0) {
+            int temp;
+            int i = 0;
+            while (i < 5) {
+                temp = r.nextInt(num);
+                if (!ran.contains(temp)) {
+                    randomArray[i] = temp;
+                    ran.add(temp);
+                    i++;
+                }
+            }
+        }
+        return randomArray;
+    }
+
+    public List getRandomItem(String tag) {
+        List<Item> randomlist;
+        List<Item> floorlist = new ArrayList<Item>();
+        try {
+            randomlist = em.createNamedQuery("Item.findByItemTag")
+                    .setParameter("itemTag", tag)
+                    .getResultList();
+            
+        } catch (NoResultException e) {
+            return null;
+        }
+        int totalNum = randomlist.size();
+        int[] ran = calculateRandom(tag, totalNum);
+        for (int i = 0; i < 5; i++) {
+            floorlist.add(randomlist.get(ran[i]));
+        }
+        return floorlist;
+
+    }
+
 }

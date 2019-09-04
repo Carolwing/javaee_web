@@ -53,16 +53,8 @@ table {
 
 
 
-.main{
-    background-color: green;
-    top:0;
-    left:0;
-    width: 100%;
-    right: 0;
-    overflow: hidden;
-}
 .header{
-    background-color:  #333;
+    background-color:#003049;
     height: 40px;
     width: 100%;
     position: fixed;
@@ -72,6 +64,32 @@ table {
     right: 0;
     overflow: hidden;
 }
+
+.main{
+    background-color:#f77f00;
+    top:0;
+    left:0;
+    width: 100%;
+    right: 0;
+    overflow: hidden;
+    height: 1230px;
+}
+
+.body{
+    background-color:#d84a05;
+    height: 1140px;
+    width: 1120px;
+    margin:auto;
+    margin-top:55px;
+}
+.floor{
+    background-color:#fcbf49;
+}
+.item{
+    background-color: #eae2b7;
+}
+
+
 .container{
     width: 1070px;
     height: 100%;
@@ -181,7 +199,8 @@ table {
     background-color:  #333;
     height: 40px;
     width: 100%;
-    float:bottom;
+    float:left;
+    margin-top: 20px;
     position:absolute;
 }
 
@@ -213,13 +232,7 @@ table {
     color: aqua;
 }
 
-.body{
-    background-color:yellow;
-    height: 1100px;
-    width: 1120px;
-    margin:auto;
-    margin-top:55px;
-}
+
 
 /*main*/
 .poster {
@@ -329,18 +342,18 @@ table {
 
 
 /*推荐商品*/
+/*每一级和它的图标*/
 .first_floor{
     float: left;
     width: 1060px;
-    height: 200px;
-    background-color: blue;
+    height: 230px;
     margin-left: 30px;
     margin-top: 30px;
 }
 .first_floor img{
     float: left;
     width: 50px;
-    height: 200px;
+    height: 230px;
 }
 
 
@@ -348,22 +361,20 @@ table {
 .second_floor{
     float: left;
     width: 1060px;
-    height: 200px;
-    background-color: blue;
+    height: 230px;
     margin-left: 30px;
     margin-top: 30px;
 }
 .second_floor img{
     float: left;
     width: 50px;
-    height: 200px;
+    height: 230px;
 }
 
 .third_floor{
     float: left;
     width: 1060px;
-    height: 200px;
-    background-color: blue;
+    height: 230px;
     margin-left: 30px;
     margin-top: 30px;
 }
@@ -373,33 +384,55 @@ table {
     height: 200px;
 }
 
+/* 每列*/
+.item{
+    float: left;
+    width: 160px;
+    height: 215px;
+    margin-left: 20px;
+    margin-top: 7px;
+}
 .item_1{
+    margin-left: 40px;
+}
+.first_floor_item{
     float: left;
-    width: 200px;
-    height: 200px;
-    margin-left: 30px;
-    background-color: pink;
+    height: 180px!important;
+    width: 160px!important;
+}
+.first_floor_item img{
+    height: 180px!important;
+    width: 160px!important;
 }
 
-.item_2{
-    float: left;
-    width: 200px;
-    height: 200px;
-    margin-left: 30px;
-    background-color: pink;
+.second_floor_item{
+    height: 200px!important;
+    width: 160px!important;
+}
+.second_floor_item img{
+    height: 180px!important;
+    width: 160px!important;
 }
 
-.item_3{
-    float: left;
-    width: 200px;
-    height: 200px;
-    margin-left: 30px;
-    background-color: pink;
+.third_floor_item{
+    height: 190px!important;
+    width: 160px!important;
 }
-.item_4{
+.third_floor_item img{
+    height: 180px!important;
+    width: 160px!important;
+}
+.tag{
     float: left;
-    width: 200px;
-    height: 200px;
     margin-left: 30px;
-    background-color: pink;
+}
+
+.test{
+    float:left;
+    margin-left: 3px;
+    line-height:35px; 
+    font-size: 13px!important;
+    text-decoration: none;
+    list-style: none;
+
 }

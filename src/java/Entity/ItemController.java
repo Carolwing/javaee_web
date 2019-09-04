@@ -4,6 +4,7 @@ import Entity.util.JsfUtil;
 import Entity.util.JsfUtil.PersistAction;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -25,7 +26,41 @@ public class ItemController implements Serializable {
     private Entity.ItemFacade ejbFacade;
     private List<Item> items = null;
     private Item selected;
+    private List<Item> firstflooritem;
+    private List<Item> secondflooritem;
+    private List<Item> thirdflooritem;
+ 
+    public List<Item> getFirstflooritem(int times) {
+        if (times==1)
+            this.firstflooritem = getFacade().getRandomItem("intellectual products");
+        return firstflooritem;
+    }
 
+    public void setFirstflooritem(List<Item> firstflooritem) {
+        this.firstflooritem = firstflooritem;
+    }
+
+    public List<Item> getSecondflooritem(int times) {
+        if (times==1)
+            this.secondflooritem = getFacade().getRandomItem("women clothes");
+        return secondflooritem;
+    }
+
+    public void setSecondflooritem(List<Item> secondflooritem) {
+        this.secondflooritem = secondflooritem;
+    }
+
+    public List<Item> getThirdflooritem(int times) {
+        if (times==1)
+            this.thirdflooritem = getFacade().getRandomItem("food");
+        return thirdflooritem;
+    }
+
+    public void setThirdflooritem(List<Item> thirdflooritem) {
+        this.thirdflooritem = thirdflooritem;
+    }
+
+    
     public ItemController() {
     }
 
