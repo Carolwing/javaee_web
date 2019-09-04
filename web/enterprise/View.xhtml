@@ -6,9 +6,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition>
 
-        <p:dialog id="EnterpriseViewDlg" widgetVar="EnterpriseViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEnterpriseTitle}">
+
+<!--        <p:dialog id="EnterpriseViewDlg" widgetVar="EnterpriseViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEnterpriseTitle}">
             <h:form id="EnterpriseViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{enterpriseController.selected != null}">
@@ -26,6 +26,33 @@
                         <h:outputText value="#{enterpriseController.selected.userId}" title="#{bundle.ViewEnterpriseTitle_userId}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="EnterpriseViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+    </ui:composition>-->
+        <ui:composition>
+        <p:dialog id="ItemViewDlg" widgetVar="ItemViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewItemTitle}">
+            <h:form id="ItemViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{itemController.selected != null}">
+                        <h:outputText value="#{bundle.ViewItemLabel_id}"/>
+                        <h:outputText value="#{itemController.selected.id}" title="#{bundle.ViewItemTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewItemLabel_stock}"/>
+                        <h:outputText value="#{itemController.selected.stock}" title="#{bundle.ViewItemTitle_stock}"/>
+                        <h:outputText value="#{bundle.ViewItemLabel_itemName}"/>
+                        <h:outputText value="#{itemController.selected.itemName}" title="#{bundle.ViewItemTitle_itemName}"/>
+                        <h:outputText value="#{bundle.ViewItemLabel_itemPrice}"/>
+                        <h:outputText value="#{itemController.selected.itemPrice}" title="#{bundle.ViewItemTitle_itemPrice}"/>
+                        <h:outputText value="#{bundle.ViewItemLabel_itemPicPath}"/>
+                        <h:outputText value="#{itemController.selected.itemPicPath}" title="#{bundle.ViewItemTitle_itemPicPath}"/>
+                        <h:outputText value="#{bundle.ViewItemLabel_itemTag}"/>
+                        <h:outputText value="#{itemController.selected.itemTag}" title="#{bundle.ViewItemTitle_itemTag}"/>
+                        <h:outputText value="#{bundle.ViewItemLabel_itemSaleNum}"/>
+                        <h:outputText value="#{itemController.selected.itemSaleNum}" title="#{bundle.ViewItemTitle_itemSaleNum}"/>
+                        <h:outputText value="#{bundle.ViewItemLabel_enterpriseId}"/>
+                        <h:outputText value="#{itemController.selected.enterpriseId}" title="#{bundle.ViewItemTitle_enterpriseId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ItemViewDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>
