@@ -12,7 +12,6 @@ import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -26,31 +25,7 @@ public class EnterpriseController implements Serializable {
     private Entity.EnterpriseFacade ejbFacade;
     private List<Enterprise> items = null;
     private Enterprise selected;
-
-    //当前企业状态
-    private boolean is_login = false;
     private Enterprise curEnterprise;
-    private String EnterpriseName;
-    private String EnterpriseLogoPath;
-    private String EnterpriseAddress;
-    private String EnterpriseTel;
-
-    //创建一个User为当前账号的企业
-    public String createEnterprise(User userid) {
-        Enterprise temp = getFacade().getIsDuplicate(EnterpriseName);
-
-        if (temp == null) {
-            getFacade().create_Enterprise(EnterpriseName, EnterpriseLogoPath, EnterpriseAddress, EnterpriseTel, userid);
-            FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage("企业注册申请已提交，请等待审核"));
-            return "/login.xhtml";
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null,
-                    new FacesMessage("企业名称已存在，请重新输入"));
-            return "/enterprise_signup_2.xhtml";
-        }
-    }
-
     public EnterpriseController() {
     }
 
@@ -61,7 +36,16 @@ public class EnterpriseController implements Serializable {
     public void setSelected(Enterprise selected) {
         this.selected = selected;
     }
-
+    
+    public Enterprise getcurEnterprise(){
+        curEnterprise=getFacade().getCurEnterprise("HAPPY");
+        return curEnterprise;
+    }
+    
+     public void setcurEnterprise(Enterprise curEnterprise) {
+        this.curEnterprise= curEnterprise;
+    }
+     
     protected void setEmbeddableKeys() {
     }
 
@@ -142,46 +126,6 @@ public class EnterpriseController implements Serializable {
 
     public List<Enterprise> getItemsAvailableSelectOne() {
         return getFacade().findAll();
-    }
-
-    public Enterprise getCurEnterprise() {
-        return curEnterprise;
-    }
-
-    public void setCurEnterprise(Enterprise curEnterprise) {
-        this.curEnterprise = curEnterprise;
-    }
-
-    public String getEnterpriseName() {
-        return EnterpriseName;
-    }
-
-    public void setEnterpriseName(String EnterpriseName) {
-        this.EnterpriseName = EnterpriseName;
-    }
-
-    public String getEnterpriseLogoPath() {
-        return EnterpriseLogoPath;
-    }
-
-    public void setEnterpriseLogoPath(String EnterpriseLogoPath) {
-        this.EnterpriseLogoPath = EnterpriseLogoPath;
-    }
-
-    public String getEnterpriseAddress() {
-        return EnterpriseAddress;
-    }
-
-    public void setEnterpriseAddress(String EnterpriseAddress) {
-        this.EnterpriseAddress = EnterpriseAddress;
-    }
-
-    public String getEnterpriseTel() {
-        return EnterpriseTel;
-    }
-
-    public void setEnterpriseTel(String EnterpriseTel) {
-        this.EnterpriseTel = EnterpriseTel;
     }
 
     @FacesConverter(forClass = Enterprise.class)

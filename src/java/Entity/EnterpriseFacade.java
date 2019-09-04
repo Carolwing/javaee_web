@@ -5,6 +5,7 @@
  */
 package Entity;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -12,14 +13,13 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Administrator
+ * @author 王淳铮
  */
 @Stateless
 public class EnterpriseFacade extends AbstractFacade<Enterprise> {
 
-    @PersistenceContext(unitName = "WebApplication1PU")
+    @PersistenceContext(unitName = "electronic_company_3.0PU")
     private EntityManager em;
-
     @Override
     protected EntityManager getEntityManager() {
         return em;
@@ -29,26 +29,25 @@ public class EnterpriseFacade extends AbstractFacade<Enterprise> {
         super(Enterprise.class);
     }
     
-    public void create_Enterprise(String EnterpriseName,String EnterpriseLogoPath,String EnterpriseAddress, String EnterpriseTel,User userid){
-        Enterprise e = new Enterprise();
-        e.setEnterpriseName(EnterpriseName);
-        e.setEnterpriseLogoPath(EnterpriseLogoPath);
-        e.setEnterpriseAddress(EnterpriseAddress);
-        e.setEnterpriseTel(EnterpriseTel);
-        e.setUserId(userid);
-        em.persist(e);
+    public Enterprise getCurEnterprise(String curEnterpriseName){
+        Enterprise curEnterprise;
+    try{   
+//        curEnterprise= (Enterprise)em.createQuery("SELECT e FROM Enterprise e WHERE e.enterpriseName=:curEnterpriseName")
+//                .setParameter("curEnterpriseName",curEnterpriseName)
+//                .getSingleResult();
+//         return curEnterprise;
+         curEnterprise= (Enterprise)em.createQuery("SELECT e FROM Enterprise e WHERE e.enterpriseName=:curEnterpriseName")
+              .setParameter("curEnterpriseName",curEnterpriseName)
+              .getSingleResult();
+         return curEnterprise;
     }
-    
-     //判断数据库中是否有企业名与输入的企业名相同
-    public Enterprise getIsDuplicate(String EnterpriseName){
-        Enterprise mEnterprise;
-        try{
-            mEnterprise = (Enterprise)em.createQuery("SELECT e FROM Enterprise e WHERE e.enterpriseName=:name")
-                .setParameter("name", EnterpriseName)
-                .getSingleResult();
-            return mEnterprise;
-        }catch (NoResultException e){
-            return null;
-        }
+    catch (NoResultException e){
+        return null;
     }
+   }
 }
+  
+    
+
+
+

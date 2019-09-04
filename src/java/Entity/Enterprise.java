@@ -6,7 +6,9 @@
 package Entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -27,7 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Administrator
+ * @author 王淳铮
  */
 @Entity
 @Table(name = "enterprise")
@@ -127,12 +129,19 @@ public class Enterprise implements Serializable {
     public void setEnterpriseTel(String enterpriseTel) {
         this.enterpriseTel = enterpriseTel;
     }
-
+    
     @XmlTransient
     public Collection<Item> getItemCollection() {
         return itemCollection;
     }
-
+   
+   
+    public List<Item> transfer_coll_to_list()
+    {
+        List<Item> enterpriseItems = new ArrayList<Item>(itemCollection);
+        return enterpriseItems;
+    }
+    
     public void setItemCollection(Collection<Item> itemCollection) {
         this.itemCollection = itemCollection;
     }
@@ -167,7 +176,7 @@ public class Enterprise implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Enterprise[ id=" + id + " ]";
+        return "Entity.Enterprise[ Name=" + enterpriseName+ " ]";
     }
     
 }
