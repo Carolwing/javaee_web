@@ -146,7 +146,7 @@ table {
 
 
 #icon_search{
-   margin-right: 4px;
+    margin-right: 4px;
     margin-top: 10px;
 }
 
@@ -215,7 +215,7 @@ table {
 
 .body{
     background-color:yellow;
-    height: 700px;
+    height: 1100px;
     width: 1120px;
     margin:auto;
     margin-top:55px;
@@ -327,3 +327,79 @@ table {
     top: 350px;
 }
 
+
+/*推荐商品*/
+.first_floor{
+    float: left;
+    width: 1060px;
+    height: 200px;
+    background-color: blue;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.first_floor img{
+    float: left;
+    width: 50px;
+    height: 200px;
+}
+
+
+
+.second_floor{
+    float: left;
+    width: 1060px;
+    height: 200px;
+    background-color: blue;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.second_floor img{
+    float: left;
+    width: 50px;
+    height: 200px;
+}
+
+.third_floor{
+    float: left;
+    width: 1060px;
+    height: 200px;
+    background-color: blue;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.third_floor img{
+    float: left;
+    width: 50px;
+    height: 200px;
+}
+
+.item_1{
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin-left: 30px;
+    background-color: pink;
+}
+
+.item_2{
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin-left: 30px;
+    background-color: pink;
+}
+
+.item_3{
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin-left: 30px;
+    background-color: pink;
+}
+.item_4{
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin-left: 30px;
+    background-color: pink;
+}
