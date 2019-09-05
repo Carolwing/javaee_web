@@ -44,6 +44,7 @@
                     </div>                  
                 </ui:insert>
             </div>
+
             <div id="body" class="body">
                 <ui:insert name="body">
                     <!--< ****************轮播图**************** />-->
@@ -60,13 +61,11 @@
                             </div>
                         </div>
                     </div>
-
                     <!--< *******************登录块!*********************** />-->
+                    
                     <div class="login">
                         <h:form class="login-form">
                             <p:panel id="panel" class="login-panel">
-
-
                                 <p:outputLabel value="密码登录" class="login-outputlable"/>
 
                                 <h:panelGrid columns="3" cellspacing="5" class="login-panelgrid-row" id="login-panelgrid">
@@ -91,153 +90,194 @@
                         </h:form>
                     </div>
                     <!--< *******************推荐商品!*********************** />-->
-                    <div class="first_floor floor">
+                    <div class="floor">
                         <h:graphicImage class="tag" value="#{resource['images/logo.png']}" alt="logo"/>
-                        <div class="item_1 item">
-                            <h:link class="first_floor_item" value="">
-                                <h:graphicImage  value="#{resource[itemController.getFirstflooritem(1).get(0).itemPicPath]}" alt="logo"/>
-                            </h:link>        
+                        <div class="item">                       
+                            <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getFirstflooritem(0).get(0))}">
+                                    <h:graphicImage  value="#{resource[itemController.getFirstflooritem(1).get(0).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getFirstflooritem(0).get(0)}"></f:param> 
+                                </h:commandLink>
+                            </h:form>
                             <p:outputLabel value="#{itemController.getFirstflooritem(0).get(0).itemName}" class="test"  />                              
                             <p:outputLabel value="  |  价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getFirstflooritem(0).get(0).itemPrice}" class="test"  />
                         </div>
-                        <div class="item_2 item">
-                            <h:link class="first_floor_item " value="">
-                                <h:graphicImage value="#{ resource[itemController.getFirstflooritem(0).get(1).itemPicPath]}" alt="logo"/>
-                            </h:link>   
+                        <div class="item">
+                            <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getFirstflooritem(0).get(1))}">
+                                    <h:graphicImage  value="#{resource[itemController.getFirstflooritem(0).get(1).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getFirstflooritem(0).get(1)}"></f:param> 
+                                </h:commandLink>
+                            </h:form>
                             <p:outputLabel value="#{itemController.getFirstflooritem(0).get(1).itemName}" class="test"  />                      
                             <p:outputLabel value="  |  价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getFirstflooritem(0).get(1).itemPrice}" class="test"  />
                         </div>
-                        <div class="item_3 item">
-                            <h:link class="first_floor_item" value="">
-                                <h:graphicImage value="#{resource[itemController.getFirstflooritem(0).get(2).itemPicPath]}" alt="logo"/>
-                            </h:link>   
+                        <div class="item">
+                            <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getFirstflooritem(0).get(2))}">
+                                    <h:graphicImage  value="#{resource[itemController.getFirstflooritem(0).get(2).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getFirstflooritem(0).get(2)}"></f:param> 
+                                </h:commandLink>
+                            </h:form> 
                             <p:outputLabel value="#{itemController.getFirstflooritem(0).get(2).itemName}" class="test"  />  
                             <p:outputLabel value="   |  价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getFirstflooritem(0).get(2).itemPrice}" class="test"  />
                         </div>
-                        <div class="item_4 item">
-                            <h:link class="first_floor_item" value="">
-                                <h:graphicImage value="#{resource[itemController.getFirstflooritem(0).get(3).itemPicPath]}" alt="logo"/>
-                            </h:link>   
+                        <div class="item">
+                            <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getFirstflooritem(0).get(3))}">
+                                    <h:graphicImage  value="#{resource[itemController.getFirstflooritem(0).get(3).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getFirstflooritem(0).get(3)}"></f:param> 
+                                </h:commandLink>
+                            </h:form>  
                             <p:outputLabel value="#{itemController.getFirstflooritem(0).get(3).itemName}" class="test"  />        
                             <p:outputLabel value="   |   价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getFirstflooritem(0).get(3).itemPrice}" class="test"  />
                         </div>
-                        <div class="item_5 item">
-                            <h:link class="first_floor_item" value="">
-                                <h:graphicImage value="#{resource[itemController.getFirstflooritem(0).get(4).itemPicPath]}" alt="logo"/>
-                            </h:link>  
+                        <div class="item">
+                            <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getFirstflooritem(0).get(4))}">
+                                    <h:graphicImage  value="#{resource[itemController.getFirstflooritem(0).get(4).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getFirstflooritem(0).get(4)}"></f:param> 
+                                </h:commandLink>
+                            </h:form> 
                             <p:outputLabel value="#{itemController.getFirstflooritem(0).get(4).itemName}" class="test"  />
                             <br/>   
                             <p:outputLabel value="   |   价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getFirstflooritem(0).get(4).itemPrice}" class="test"  />
                         </div>
                     </div>
-
-
-                    <div class="second_floor floor">
+                    <div class="floor">
                         <h:graphicImage class="tag" value="#{resource['images:logo.png']}" alt="logo"/>
-                        <div class="item_1 item">
-                            <h:link class="second_floor_item" value="">
-                                <h:graphicImage value="#{resource[itemController.getSecondflooritem(1).get(0).itemPicPath]}" alt="logo"/>
-                            </h:link>    
+                        <div class="item">
+                            <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getSecondflooritem(0).get(0))}">
+                                    <h:graphicImage  value="#{resource[itemController.getSecondflooritem(1).get(0).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getSecondflooritem(0).get(0)}"></f:param> 
+                                </h:commandLink>
+                            </h:form>  
                             <p:outputLabel value="#{itemController.getSecondflooritem(0).get(0).itemName}" class="test"  />
                             <br/>   
                             <p:outputLabel value="   |   价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getSecondflooritem(0).get(0).itemPrice}" class="test"  />
                         </div>
-                        <div class="item_2 item">
-                            <h:link class="second_floor_item" value="">
-                                <h:graphicImage value="#{resource[itemController.getSecondflooritem(0).get(1).itemPicPath]}" alt="logo"/>
-                            </h:link>    
+                        <div class="item">
+                            <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getSecondflooritem(0).get(1))}">
+                                    <h:graphicImage  value="#{resource[itemController.getSecondflooritem(0).get(1).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getSecondflooritem(0).get(1)}"></f:param> 
+                                </h:commandLink>
+                            </h:form>  
                             <p:outputLabel value="#{itemController.getSecondflooritem(0).get(1).itemName}" class="test"  />
                             <br/>   
                             <p:outputLabel value="   |   价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getSecondflooritem(0).get(1).itemPrice}" class="test"  />
                         </div>
-                        <div class="item_3 item">
-                            <h:link class="second_floor_item" value="">
-                                <h:graphicImage value="#{resource[itemController.getSecondflooritem(0).get(2).itemPicPath]}" alt="logo"/>
-                            </h:link>     
+                        <div class="item">
+                             <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getSecondflooritem(0).get(2))}">
+                                    <h:graphicImage  value="#{resource[itemController.getSecondflooritem(0).get(2).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getSecondflooritem(0).get(2)}"></f:param> 
+                                </h:commandLink>
+                            </h:form>    
                             <p:outputLabel value="#{itemController.getSecondflooritem(0).get(2).itemName}" class="test"  />
                             <br/>   
                             <p:outputLabel value="   |   价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getSecondflooritem(0).get(2).itemPrice}" class="test"  />
                         </div>
-                        <div class="item_4 item">
-                            <h:link class="second_floor_item" value="">
-                                <h:graphicImage value="#{resource[itemController.getSecondflooritem(0).get(3).itemPicPath]}" alt="logo"/>
-                            </h:link>                                
+                        <div class="item">
+                             <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getSecondflooritem(0).get(3))}">
+                                    <h:graphicImage  value="#{resource[itemController.getSecondflooritem(0).get(3).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getSecondflooritem(0).get(3)}"></f:param> 
+                                </h:commandLink>
+                            </h:form>                                
                             <p:outputLabel value="#{itemController.getSecondflooritem(0).get(3).itemName}" class="test"  />
                             <br/>   
                             <p:outputLabel value="   |   价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getSecondflooritem(0).get(3).itemPrice}" class="test"  />
                         </div>
-                        <div class="item_5 item">
-                            <h:link class="second_floor_item" value="">
-                                <h:graphicImage value="#{resource[itemController.getSecondflooritem(0).get(4).itemPicPath]}" alt="logo"/>
-                            </h:link>   
+                        <div class="item">
+                             <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getSecondflooritem(0).get(4))}">
+                                    <h:graphicImage  value="#{resource[itemController.getSecondflooritem(0).get(4).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getSecondflooritem(0).get(4)}"></f:param> 
+                                </h:commandLink>
+                            </h:form> 
                             <p:outputLabel value="#{itemController.getSecondflooritem(0).get(4).itemName}" class="test"  />
                             <br/>   
                             <p:outputLabel value="   |   价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getSecondflooritem(0).get(4).itemPrice}" class="test"  />
                         </div>
                     </div>
-
-                    <div class="third_floor floor">
+                    <div class="floor">
                         <h:graphicImage class="tag" value="#{resource['images:logo.png']}" alt="logo"/>
-                        <div class="item_1 item">
-                            <h:link class="third_floor_item" value="">
-                                <h:graphicImage value="#{resource[itemController.getThirdflooritem(1).get(0).itemPicPath]}" alt="logo"/>
-                            </h:link>    
+                        <div class="item">
+                             <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getThirdflooritem(0).get(0))}">
+                                    <h:graphicImage  value="#{resource[itemController.getThirdflooritem(1).get(0).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getThirdflooritem(0).get(0)}"></f:param> 
+                                </h:commandLink>
+                            </h:form>    
                             <p:outputLabel value="#{itemController.getThirdflooritem(0).get(0).itemName}" class="test"  />
                             <br/>   
                             <p:outputLabel value="   |   价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getThirdflooritem(0).get(0).itemPrice}" class="test"  />
                         </div>
-                        <div class="item_2 item">
-                            <h:link class="third_floor_item" value="">
-                                <h:graphicImage value="#{resource[itemController.getThirdflooritem(0).get(1).itemPicPath]}" alt="logo"/>
-                            </h:link>    
+                        <div class="item">
+                            <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getThirdflooritem(0).get(1))}">
+                                    <h:graphicImage  value="#{resource[itemController.getThirdflooritem(0).get(1).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getThirdflooritem(0).get(1)}"></f:param> 
+                                </h:commandLink>
+                            </h:form>    
                             <p:outputLabel value="#{itemController.getThirdflooritem(0).get(1).itemName}" class="test"  />
                             <br/>   
                             <p:outputLabel value="   |   价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getThirdflooritem(0).get(1).itemPrice}" class="test"  />
                         </div>
-                        <div class="item_3 item">
-                            <h:link class="third_floor_item" value="">
-                                <h:graphicImage value="#{resource[itemController.getThirdflooritem(0).get(2).itemPicPath]}" alt="logo"/>
-                            </h:link>    
+                        <div class="item">
+                            <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getThirdflooritem(0).get(2))}">
+                                    <h:graphicImage  value="#{resource[itemController.getThirdflooritem(0).get(2).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getThirdflooritem(0).get(2)}"></f:param> 
+                                </h:commandLink>
+                            </h:form>   
                             <p:outputLabel value="#{itemController.getThirdflooritem(0).get(2).itemName}" class="test"  />
                             <br/>   
                             <p:outputLabel value="   |   价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getThirdflooritem(0).get(2).itemPrice}" class="test"  />
                         </div>
-                        <div class="item_4 item">
-                            <h:link class="third_floor_item" value="">
-                                <h:graphicImage value="#{resource[itemController.getThirdflooritem(0).get(3).itemPicPath]}" alt="logo"/>
-                            </h:link>    
+                        <div class="item">
+                           <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getThirdflooritem(0).get(3))}">
+                                    <h:graphicImage  value="#{resource[itemController.getThirdflooritem(0).get(3).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getThirdflooritem(0).get(3)}"></f:param> 
+                                </h:commandLink>
+                            </h:form> 
                             <p:outputLabel value="#{itemController.getThirdflooritem(0).get(3).itemName}" class="test"  />
                             <br/>   
                             <p:outputLabel value="   |   价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getThirdflooritem(0).get(3).itemPrice}" class="test"  />
                         </div>
-                        <div class="item_5 item">
-                            <h:link class="third_floor_item" value="">
-                                <h:graphicImage value="#{resource[itemController.getThirdflooritem(0).get(4).itemPicPath]}" alt="logo"/>
-                            </h:link>    
+                        <div class="item">
+                            <h:form>
+                                <h:commandLink action="#{goodParameter.itemDetail(itemController.getThirdflooritem(0).get(4))}">
+                                    <h:graphicImage  value="#{resource[itemController.getThirdflooritem(0).get(4).itemPicPath]}" alt="logo"/>                                     
+                                    <f:param id="id" name="id" value="#{itemController.getThirdflooritem(0).get(4)}"></f:param> 
+                                </h:commandLink>
+                            </h:form>     
                             <p:outputLabel value="#{itemController.getThirdflooritem(0).get(4).itemName}" class="test"  />
                             <br/>   
                             <p:outputLabel value="   |   价格:" class="test"  />
                             <p:outputLabel value="#{itemController.getThirdflooritem(0).get(4).itemPrice}" class="test"  />
                         </div>
                     </div>
-
-
                 </ui:insert>     
             </div>  
+
             <div id="footer" class="footer">
                 <ui:insert name="footer">
                     <div class="detail-group">

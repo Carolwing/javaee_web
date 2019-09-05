@@ -343,47 +343,13 @@ table {
 
 /*推荐商品*/
 /*每一级和它的图标*/
-.first_floor{
+.floor{
     float: left;
     width: 1060px;
     height: 230px;
     margin-left: 30px;
     margin-top: 30px;
 }
-.first_floor img{
-    float: left;
-    width: 50px;
-    height: 230px;
-}
-
-
-
-.second_floor{
-    float: left;
-    width: 1060px;
-    height: 230px;
-    margin-left: 30px;
-    margin-top: 30px;
-}
-.second_floor img{
-    float: left;
-    width: 50px;
-    height: 230px;
-}
-
-.third_floor{
-    float: left;
-    width: 1060px;
-    height: 230px;
-    margin-left: 30px;
-    margin-top: 30px;
-}
-.third_floor img{
-    float: left;
-    width: 50px;
-    height: 200px;
-}
-
 /* 每列*/
 .item{
     float: left;
@@ -392,39 +358,17 @@ table {
     margin-left: 20px;
     margin-top: 7px;
 }
-.item_1{
-    margin-left: 40px;
-}
-.first_floor_item{
+.item img{
     float: left;
-    height: 180px!important;
-    width: 160px!important;
-}
-.first_floor_item img{
-    height: 180px!important;
-    width: 160px!important;
+    width: 160px;
+    height: 180px;
 }
 
-.second_floor_item{
-    height: 200px!important;
-    width: 160px!important;
-}
-.second_floor_item img{
-    height: 180px!important;
-    width: 160px!important;
-}
-
-.third_floor_item{
-    height: 190px!important;
-    width: 160px!important;
-}
-.third_floor_item img{
-    height: 180px!important;
-    width: 160px!important;
-}
 .tag{
-    float: left;
+    float:left;
     margin-left: 30px;
+    height: 180px!important;
+    width: 50px!important;
 }
 
 .test{
@@ -434,5 +378,4 @@ table {
     font-size: 13px!important;
     text-decoration: none;
     list-style: none;
-
 }
