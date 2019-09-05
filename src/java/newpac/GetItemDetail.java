@@ -7,11 +7,11 @@ package newpac;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-import text.CartController;
-import text.CartFacade;
-import text.ItemController;
-import text.ItemFacade;
-import text.Item;
+import Entity.CartController;
+import Entity.CartFacade;
+import Entity.ItemController;
+import Entity.ItemFacade;
+import Entity.Item;
 import javax.ejb.EJB;
 
 @Named

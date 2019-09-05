@@ -18,7 +18,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class EnterpriseFacade extends AbstractFacade<Enterprise> {
 
-    @PersistenceContext(unitName = "electronic_company_3.0PU")
+    @PersistenceContext(unitName = "WebApplication1PU")
     private EntityManager em;
     @Override
     protected EntityManager getEntityManager() {

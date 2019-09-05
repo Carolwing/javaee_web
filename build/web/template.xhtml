@@ -9,7 +9,7 @@
     <h:head>
         <title><ui:insert name="title">Default Title</ui:insert></title>
         <h:outputScript library="js" name="home.js"/>
-         <h:outputStylesheet library="css" name="template.css"/>
+        <h:outputStylesheet library="css" name="template.css"/>
     </h:head>
 
     <h:body>
@@ -34,9 +34,9 @@
                             <i class="icon-icon_fabu iconfont" id="icon_cart">&#xe61a;</i>
 
                             <h:form class="search">
-                                <p:commandButton class="search-btn" update="username"  action="/"/>
+                                <p:commandButton class="search-btn"  update="username"  action="/"/>
                                 <p:inputText  class="searchbox"  id="username" value="#{login_info.username}" required="true" maxlength="20" placeholder="关键字搜索" requiredMessage="请输入关键字"></p:inputText>                       
-                                
+
                             </h:form>
                             <i class="icon-icon_fabu iconfont" id="icon_search">&#xe607;</i>
                         </div>
@@ -60,36 +60,181 @@
                             </div>
                         </div>
                     </div>
-                    <div class="login">
-                        <h:form class="login-form">
-                        <p:panel id="panel" class="login-panel">
-                            
-
-                            <p:outputLabel value="密码登录" class="login-outputlable"/>
-                            
-                            <h:panelGrid columns="3" cellspacing="5" class="login-panelgrid-row" id="login-panelgrid">
-                                <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="firstname"/>
-                                <!--<p:outputLabel for="firstname" value="Firstname:" />-->
-                                <p:inputText id="username" value="#{userController.username}" required="true" maxlength="20" placeholder="输入用户名" requiredMessage="请输入用户名">
-                                </p:inputText>
-                                <p:message for="username" id="user_msgs" class="login-msgs" display="icon"/>
-
-                                <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="firstname"/>
-                                <p:password id="password" value="#{userController.password}" required="true" maxlength="20" placeholder="输入密码" requiredMessage="请输入密码">
-                                </p:password>
-                                <p:message for="password" id="password_msgs" class="login-msgs" display="icon"/>
-                            </h:panelGrid>
-
-                            <p:commandButton value="登录" update="panel" class="login-btn" action="#{userController.login('template.xhtml')}" />
-                           
-                            <p:messages id="msgs" class="login-msgs" showDetail="false" showIcon="false"/>
-                            <p:link outcome="user_signup" value="用户注册" class="sign-up-link"/>
-
-                        </p:panel>
-                    </h:form>
-                    </div>
 
                     <!--< *******************登录块!*********************** />-->
+                    <div class="login">
+                        <h:form class="login-form">
+                            <p:panel id="panel" class="login-panel">
+
+
+                                <p:outputLabel value="密码登录" class="login-outputlable"/>
+
+                                <h:panelGrid columns="3" cellspacing="5" class="login-panelgrid-row" id="login-panelgrid">
+                                    <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="firstname"/>
+                                    <!--<p:outputLabel for="firstname" value="Firstname:" />-->
+                                    <p:inputText id="username" value="#{userController.username}" required="true" maxlength="20" placeholder="输入用户名" requiredMessage="请输入用户名">
+                                    </p:inputText>
+                                    <p:message for="username" id="user_msgs" class="login-msgs" display="icon"/>
+
+                                    <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="firstname"/>
+                                    <p:password id="password" value="#{userController.password}" required="true" maxlength="20" placeholder="输入密码" requiredMessage="请输入密码">
+                                    </p:password>
+                                    <p:message for="password" id="password_msgs" class="login-msgs" display="icon"/>
+                                </h:panelGrid>
+
+                                <p:commandButton value="登录" update="panel" class="login-btn" action="#{userController.login('template.xhtml')}" />
+
+                                <p:messages id="msgs" class="login-msgs" showDetail="false" showIcon="false"/>
+                                <p:link outcome="user_signup" value="用户注册" class="sign-up-link"/>
+
+                            </p:panel>
+                        </h:form>
+                    </div>
+                    <!--< *******************推荐商品!*********************** />-->
+                    <div class="first_floor floor">
+                        <h:graphicImage class="tag" value="#{resource['images/logo.png']}" alt="logo"/>
+                        <div class="item_1 item">
+                            <h:link class="first_floor_item" value="">
+                                <h:graphicImage  value="#{resource[itemController.getFirstflooritem(1).get(0).itemPicPath]}" alt="logo"/>
+                            </h:link>        
+                            <p:outputLabel value="#{itemController.getFirstflooritem(0).get(0).itemName}" class="test"  />                              
+                            <p:outputLabel value="  |  价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getFirstflooritem(0).get(0).itemPrice}" class="test"  />
+                        </div>
+                        <div class="item_2 item">
+                            <h:link class="first_floor_item " value="">
+                                <h:graphicImage value="#{ resource[itemController.getFirstflooritem(0).get(1).itemPicPath]}" alt="logo"/>
+                            </h:link>   
+                            <p:outputLabel value="#{itemController.getFirstflooritem(0).get(1).itemName}" class="test"  />                      
+                            <p:outputLabel value="  |  价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getFirstflooritem(0).get(1).itemPrice}" class="test"  />
+                        </div>
+                        <div class="item_3 item">
+                            <h:link class="first_floor_item" value="">
+                                <h:graphicImage value="#{resource[itemController.getFirstflooritem(0).get(2).itemPicPath]}" alt="logo"/>
+                            </h:link>   
+                            <p:outputLabel value="#{itemController.getFirstflooritem(0).get(2).itemName}" class="test"  />  
+                            <p:outputLabel value="   |  价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getFirstflooritem(0).get(2).itemPrice}" class="test"  />
+                        </div>
+                        <div class="item_4 item">
+                            <h:link class="first_floor_item" value="">
+                                <h:graphicImage value="#{resource[itemController.getFirstflooritem(0).get(3).itemPicPath]}" alt="logo"/>
+                            </h:link>   
+                            <p:outputLabel value="#{itemController.getFirstflooritem(0).get(3).itemName}" class="test"  />        
+                            <p:outputLabel value="   |   价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getFirstflooritem(0).get(3).itemPrice}" class="test"  />
+                        </div>
+                        <div class="item_5 item">
+                            <h:link class="first_floor_item" value="">
+                                <h:graphicImage value="#{resource[itemController.getFirstflooritem(0).get(4).itemPicPath]}" alt="logo"/>
+                            </h:link>  
+                            <p:outputLabel value="#{itemController.getFirstflooritem(0).get(4).itemName}" class="test"  />
+                            <br/>   
+                            <p:outputLabel value="   |   价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getFirstflooritem(0).get(4).itemPrice}" class="test"  />
+                        </div>
+                    </div>
+
+
+                    <div class="second_floor floor">
+                        <h:graphicImage class="tag" value="#{resource['images:logo.png']}" alt="logo"/>
+                        <div class="item_1 item">
+                            <h:link class="second_floor_item" value="">
+                                <h:graphicImage value="#{resource[itemController.getSecondflooritem(1).get(0).itemPicPath]}" alt="logo"/>
+                            </h:link>    
+                            <p:outputLabel value="#{itemController.getSecondflooritem(0).get(0).itemName}" class="test"  />
+                            <br/>   
+                            <p:outputLabel value="   |   价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getSecondflooritem(0).get(0).itemPrice}" class="test"  />
+                        </div>
+                        <div class="item_2 item">
+                            <h:link class="second_floor_item" value="">
+                                <h:graphicImage value="#{resource[itemController.getSecondflooritem(0).get(1).itemPicPath]}" alt="logo"/>
+                            </h:link>    
+                            <p:outputLabel value="#{itemController.getSecondflooritem(0).get(1).itemName}" class="test"  />
+                            <br/>   
+                            <p:outputLabel value="   |   价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getSecondflooritem(0).get(1).itemPrice}" class="test"  />
+                        </div>
+                        <div class="item_3 item">
+                            <h:link class="second_floor_item" value="">
+                                <h:graphicImage value="#{resource[itemController.getSecondflooritem(0).get(2).itemPicPath]}" alt="logo"/>
+                            </h:link>     
+                            <p:outputLabel value="#{itemController.getSecondflooritem(0).get(2).itemName}" class="test"  />
+                            <br/>   
+                            <p:outputLabel value="   |   价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getSecondflooritem(0).get(2).itemPrice}" class="test"  />
+                        </div>
+                        <div class="item_4 item">
+                            <h:link class="second_floor_item" value="">
+                                <h:graphicImage value="#{resource[itemController.getSecondflooritem(0).get(3).itemPicPath]}" alt="logo"/>
+                            </h:link>                                
+                            <p:outputLabel value="#{itemController.getSecondflooritem(0).get(3).itemName}" class="test"  />
+                            <br/>   
+                            <p:outputLabel value="   |   价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getSecondflooritem(0).get(3).itemPrice}" class="test"  />
+                        </div>
+                        <div class="item_5 item">
+                            <h:link class="second_floor_item" value="">
+                                <h:graphicImage value="#{resource[itemController.getSecondflooritem(0).get(4).itemPicPath]}" alt="logo"/>
+                            </h:link>   
+                            <p:outputLabel value="#{itemController.getSecondflooritem(0).get(4).itemName}" class="test"  />
+                            <br/>   
+                            <p:outputLabel value="   |   价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getSecondflooritem(0).get(4).itemPrice}" class="test"  />
+                        </div>
+                    </div>
+
+                    <div class="third_floor floor">
+                        <h:graphicImage class="tag" value="#{resource['images:logo.png']}" alt="logo"/>
+                        <div class="item_1 item">
+                            <h:link class="third_floor_item" value="">
+                                <h:graphicImage value="#{resource[itemController.getThirdflooritem(1).get(0).itemPicPath]}" alt="logo"/>
+                            </h:link>    
+                            <p:outputLabel value="#{itemController.getThirdflooritem(0).get(0).itemName}" class="test"  />
+                            <br/>   
+                            <p:outputLabel value="   |   价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getThirdflooritem(0).get(0).itemPrice}" class="test"  />
+                        </div>
+                        <div class="item_2 item">
+                            <h:link class="third_floor_item" value="">
+                                <h:graphicImage value="#{resource[itemController.getThirdflooritem(0).get(1).itemPicPath]}" alt="logo"/>
+                            </h:link>    
+                            <p:outputLabel value="#{itemController.getThirdflooritem(0).get(1).itemName}" class="test"  />
+                            <br/>   
+                            <p:outputLabel value="   |   价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getThirdflooritem(0).get(1).itemPrice}" class="test"  />
+                        </div>
+                        <div class="item_3 item">
+                            <h:link class="third_floor_item" value="">
+                                <h:graphicImage value="#{resource[itemController.getThirdflooritem(0).get(2).itemPicPath]}" alt="logo"/>
+                            </h:link>    
+                            <p:outputLabel value="#{itemController.getThirdflooritem(0).get(2).itemName}" class="test"  />
+                            <br/>   
+                            <p:outputLabel value="   |   价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getThirdflooritem(0).get(2).itemPrice}" class="test"  />
+                        </div>
+                        <div class="item_4 item">
+                            <h:link class="third_floor_item" value="">
+                                <h:graphicImage value="#{resource[itemController.getThirdflooritem(0).get(3).itemPicPath]}" alt="logo"/>
+                            </h:link>    
+                            <p:outputLabel value="#{itemController.getThirdflooritem(0).get(3).itemName}" class="test"  />
+                            <br/>   
+                            <p:outputLabel value="   |   价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getThirdflooritem(0).get(3).itemPrice}" class="test"  />
+                        </div>
+                        <div class="item_5 item">
+                            <h:link class="third_floor_item" value="">
+                                <h:graphicImage value="#{resource[itemController.getThirdflooritem(0).get(4).itemPicPath]}" alt="logo"/>
+                            </h:link>    
+                            <p:outputLabel value="#{itemController.getThirdflooritem(0).get(4).itemName}" class="test"  />
+                            <br/>   
+                            <p:outputLabel value="   |   价格:" class="test"  />
+                            <p:outputLabel value="#{itemController.getThirdflooritem(0).get(4).itemPrice}" class="test"  />
+                        </div>
+                    </div>
+
 
                 </ui:insert>     
             </div>  
@@ -104,6 +249,8 @@
                     </div>
                 </ui:insert>     
             </div>  
-        </div>    
+
+        </div>  
+
     </h:body>
 </html>
