@@ -3,24 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/src/java/Entity/OrderDetailController.java</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/web/resources/css/login_style.css</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/web/resources/css/jsfcrud.css</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/src/java/Entity/AbstractFacade.java</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/src/java/Entity/User.java</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/web/WEB-INF/web.xml</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/src/java/Entity/UserFacade.java</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/login.xhtml</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/src/java/Entity/Enterprise.java</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/web/template.xhtml</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/src/java/Entity/UserView.java</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/web/WEB-INF/glassfish-resources.xml</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/src/java/Entity/UserController.java</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/web/welcomePrimefaces.xhtml</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/web/orderDetail/List.xhtml</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/src/java/Entity/login_info.java</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/web/index.xhtml</file>
-            <file>file:/E:/文档/NetBeansProjects/WebApplication1/web/login.xhtml</file>
+            <file>file:/E:/testhgfjh/src/java/Entity/User.java</file>
+            <file>file:/E:/testhgfjh/web/resources/css/main.css</file>
+            <file>file:/E:/testhgfjh/web/welcomePrimefaces.xhtml</file>
+            <file>file:/E:/testhgfjh/web/GoodDetail.xhtml</file>
+            <file>file:/E:/testhgfjh/web/template.xhtml</file>
+            <file>file:/E:/testhgfjh/src/java/Entity/UserController.java</file>
+            <file>file:/E:/testhgfjh/web/newxhtml1.xhtml</file>
+            <file>file:/E:/testhgfjh/web/WEB-INF/web.xml</file>
+            <file>file:/E:/testhgfjh/src/java/Entity/OrderDetailFacade.java</file>
+            <file>file:/E:/testhgfjh/web/resources/css/jsfcrud.css</file>
+            <file>file:/E:/testhgfjh/src/java/Entity/UserFacade.java</file>
+            <file>file:/E:/testhgfjh/web/index.xhtml</file>
+            <file>file:/E:/testhgfjh/web/myorders.xhtml</file>
+            <file>file:/E:/testhgfjh/src/java/Entity/OrderDetailController.java</file>
         </group>
     </open-files>
 </project-private>

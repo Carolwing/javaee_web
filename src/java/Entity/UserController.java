@@ -4,6 +4,7 @@ import Entity.util.JsfUtil;
 import Entity.util.JsfUtil.PersistAction;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -33,7 +34,7 @@ public class UserController implements Serializable {
     private String username;
     private String password;
     private User current_user;
-    private User curUser
+    private User curUser;
     private List<OrderDetail> orderCollection;
 
     //陈志刚
