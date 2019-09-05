@@ -20,30 +20,37 @@
             <ui:composition template="template.xhtml">
                 <ui:define name="body">
                     <div class="login">
+                        <ui:insert name = "login" >
                             <h:form class="login-form">
                                 <p:panel id="panel" class="login-panel">
+
+
                                     <p:outputLabel value="密码登录" class="login-outputlable"/>
 
                                     <h:panelGrid columns="3" cellspacing="5" class="login-panelgrid-row" id="login-panelgrid">
-                                        <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="firstname"/>
-                                        <!--<p:outputLabel for="firstname" value="Firstname:" />-->
+                                        <p:graphicImage url="resources/images/head.jpg" width="30" height="30" class="gimg"/>
                                         <p:inputText id="username" value="#{userController.username}" required="true" maxlength="20" placeholder="输入用户名" requiredMessage="请输入用户名">
                                         </p:inputText>
                                         <p:message for="username" id="user_msgs" class="login-msgs" display="icon"/>
 
-                                        <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="firstname"/>
+                                        <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="firstname" class="gimg"/>
                                         <p:password id="password" value="#{userController.password}" required="true" maxlength="20" placeholder="输入密码" requiredMessage="请输入密码">
                                         </p:password>
                                         <p:message for="password" id="password_msgs" class="login-msgs" display="icon"/>
                                     </h:panelGrid>
 
-                                    <p:commandButton value="登录" update="panel" class="login-btn" action="#{userController.login('/login.xhtml')}" />
+                                    <p:commandButton value="登录" update="login-panelgrid msgs" class="login-btn" action="#{userController.login('/login.xhtml')}" />
 
                                     <p:messages id="msgs" class="login-msgs" showDetail="false" showIcon="false"/>
                                     <p:link outcome="user_signup" value="用户注册" class="sign-up-link"/>
 
                                 </p:panel>
                             </h:form>
+                        </ui:insert>
+
+                        <!--                <p:layoutUnit position="center">
+                                            Welcome to PrimeFaces
+                                        </p:layoutUnit>-->
                     </div>
                 </ui:define>
             </ui:composition>
