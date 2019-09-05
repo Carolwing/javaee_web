@@ -36,8 +36,7 @@ public class ItemFacade extends AbstractFacade<Item> {
     public int[] calculateRandom(String tag, int num) {
         int[] randomArray = {-1, -1, -1, -1,-1};
         List ran = new ArrayList();
-        Random r = new Random();
-        
+        Random r = new Random();        
         if (num != 0) {
             int temp;
             int i = 0;
@@ -70,7 +69,5 @@ public class ItemFacade extends AbstractFacade<Item> {
             floorlist.add(randomlist.get(ran[i]));
         }
         return floorlist;
-
     }
-
 }
