@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entity;
+package databag;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.ejb.EJB;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,7 +26,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Administrator
+ * @author VictorChan
  */
 @Entity
 @Table(name = "order_detail")
@@ -36,7 +37,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "OrderDetail.findByOrderItemNum", query = "SELECT o FROM OrderDetail o WHERE o.orderItemNum = :orderItemNum")
     , @NamedQuery(name = "OrderDetail.findById", query = "SELECT o FROM OrderDetail o WHERE o.id = :id")})
 public class OrderDetail implements Serializable {
-
+//     @EJB
+//    OrderDetailFacade orderDetailFacade;
+    
+    
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
     @NotNull
@@ -89,7 +93,8 @@ public class OrderDetail implements Serializable {
     }
 
     public Integer getId() {
-        return id;
+//        return id;
+           return orderItemNum*itemId.getItemPrice();
     }
 
     public void setId(Integer id) {
@@ -134,7 +139,8 @@ public class OrderDetail implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.OrderDetail[ id=" + id + " ]";
+        return "databag.OrderDetail[ id=" + id + " ]";
     }
     
+
 }

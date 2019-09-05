@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entity;
+package databag;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -11,12 +11,12 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Administrator
+ * @author VictorChan
  */
 @Stateless
 public class OrderDetailFacade extends AbstractFacade<OrderDetail> {
 
-    @PersistenceContext(unitName = "WebApplication1PU")
+    @PersistenceContext(unitName = "datawebPU")
     private EntityManager em;
 
     @Override
@@ -27,5 +27,5 @@ public class OrderDetailFacade extends AbstractFacade<OrderDetail> {
     public OrderDetailFacade() {
         super(OrderDetail.class);
     }
-    
+
 }

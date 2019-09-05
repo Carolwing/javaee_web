@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+          >
+	<h:head>
+		<title>订单详情</title>
+		<h:outputStylesheet library="css" name="style.css"/>
+	</h:head>
+	<h:body>
+                <h:form>
+                     <h2 style="padding-left: 50px;padding-bottom: 50px;padding-top:50px;">我的订单</h2>
+                    <p:dataTable  value="#{userController.transfer_od_to_list(7)}" var="item" style="padding-left: 50px; padding-right: 50px;text-align:center;line-height: 60px">
+                        <p:column>
+                            <h:graphicImage url="#{resource[item.itemId.itemPicPath]}" 
+                            alt="Duke waving his hand" styleClass="image"/>
+                        </p:column>
+                        <p:column>
+                                <f:facet name="header">商家名</f:facet>
+                                <h:outputText value="#{item.itemId.enterpriseId.enterpriseName}"/>
+                        </p:column>
+                        <p:column>
+                                <f:facet name="header">下单时间</f:facet>
+                                <h:outputText value="#{item.orderTime}"/>
+                        </p:column>
+                        <p:column>
+                                <f:facet name="header">商品名</f:facet>
+                                <h:outputText value="#{item.itemId.itemName}"/>
+                        </p:column>
+                        <p:column>
+                                <f:facet name="header">单价</f:facet>
+                                <h:outputText value="#{item.itemId.itemPrice}"/>
+                        </p:column>
+                        <p:column>
+                                <f:facet name="header">数量</f:facet>
+                                <h:outputText value="#{item.orderItemNum}" />
+                        </p:column>
+                        <p:column>
+                                <f:facet name="header">总价</f:facet>
+                                <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <p:column>
+                                <f:facet name="header">操作</f:facet>
+                                <p:commandButton value="删除" style="margin-right:20px;" action="#{orderDetailController.removeOD()
+}">
+                                    <f:param name="productId" value="40" />
+                                </p:commandButton>
+                        </p:column>
+                        <f:facet name="footer"><div style="width: 100%;text-align: right;"><p:commandButton value="返回" style="margin-right: 100px;"/></div></f:facet>
+<!--                        <div name="footer" style="text-align:right;"><p:commandButton value="返回"/></div>-->
+                    </p:dataTable>
+		</h:form>
+	</h:body>
+</html>
+
