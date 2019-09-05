@@ -628,10 +628,18 @@ h1 {
     margin-top: 30px;
 }
 
-#imags, #imgtxt, #recommend {
+#imags{
     float: left;
     overflow: hidden; /*否则超出宽度图片还是会显示，清除浮动*/
     margin: 20px;
+    margin-left: 160px;
+}
+
+#imgtxt {
+    float: left;
+    overflow: hidden; /*否则超出宽度图片还是会显示，清除浮动*/
+    margin-top: 100px;
+    margin-left: 70px;
 }
 /*以下是商品详情页1左侧图片显示样式设置*/
 #imags, #bigimgs, #bigimgs li, #bigimgs img, #smallimgs {
