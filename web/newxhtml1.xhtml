@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<title>购物车</title>
+		<h:outputStylesheet library="css" name="style.css"/>
+	</h:head>
+	<h:body>
+<!--		<h:form>
+                     <h2>购物车</h2>
+                    value接受一个数组，var表示数组里的每一个对象
+                    <h:dataTable columnClasses="column1,column2,column3,column4" value="#{tableData.cart}" var="item" headerClass="header" styleClass="data">
+                        <h:column>
+                            <h:graphicImage url="#{resource['image:watch.jpg']}" 
+                            alt="Duke waving his hand" styleClass="image"/>
+                        </h:column>   
+                        <h:column>
+                                <f:facet name="header">商品名</f:facet>
+                                <h:outputText value="#{item.goods.title}"/>
+                        </h:column>
+                        <h:column>
+                                <f:facet name="header">单价</f:facet>
+                                <h:outputText value="#{item.goods.price}"/>
+                        </h:column>
+                        <h:column>
+                                <f:facet name="header">数量</f:facet>
+                                <h:inputText value="#{item.num}" styleClass="field"/>
+                        </h:column>
+                        <h:column>
+                                <f:facet name="header">总价</f:facet>
+                                <h:outputText value="#{item.sum}"/>
+                        </h:column>
+                        <h:column>
+                                <h:commandLink value="删除" action="#{tableData.delete(item)}"/>
+                        </h:column>
+                        <f:facet name="footer"><h:commandButton value="付款"/></f:facet>
+                    </h:dataTable>
+		</h:form>-->
+                <h:form>
+                     <h2>购物车</h2>
+                    <h:dataTable columnClasses="column1,column2,column3,column4" value="#{userController.getcurUser().transfer_coll_to_list()}" var="item" headerClass="header" styleClass="data">
+                        <h:column>
+                            <h:graphicImage url="#{resource['image:watch.jpg']}" 
+                            alt="Duke waving his hand" styleClass="image"/>
+                        </h:column>   
+                        <h:column>
+                                <f:facet name="header">商品名</f:facet>
+                                <h:outputText value="#{item.itemId.itemName}"/>
+                        </h:column>
+                        <h:column>
+                                <f:facet name="header">单价</f:facet>
+                                <h:outputText value="#{item.itemId.itemPrice}"/>
+                        </h:column>
+                        <h:column>
+                                <f:facet name="header">数量</f:facet>
+                                <h:inputText value="#{item.cartItemNum}" styleClass="field"/>
+                        </h:column>
+                        <h:column>
+                                <f:facet name="header">总价</f:facet>
+                                <h:outputText value="#{item.id}"/>
+                        </h:column>
+<!--                        <h:column>
+                                <h:commandLink value="删除" action="#{tableData.delete(item)}"/>
+                        </h:column>-->
+                        <f:facet name="footer"><h:commandButton value="付款"/></f:facet>
+                    </h:dataTable>
+		</h:form>
+	</h:body>
+</html>

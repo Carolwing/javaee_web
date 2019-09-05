@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entity;
+package databag;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -25,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Administrator
+ * @author VictorChan
  */
 @Entity
 @Table(name = "user")
@@ -36,8 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "User.findByName", query = "SELECT u FROM User u WHERE u.name = :name")
     , @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password")
     , @NamedQuery(name = "User.findByRole", query = "SELECT u FROM User u WHERE u.role = :role")
-    , @NamedQuery(name = "User.findByVerifyState", query = "SELECT u FROM User u WHERE u.verifyState = :verifyState")
-})
+    , @NamedQuery(name = "User.findByVerifyState", query = "SELECT u FROM User u WHERE u.verifyState = :verifyState")})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -71,7 +72,7 @@ public class User implements Serializable {
     private Collection<OrderDetail> orderDetailCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     private Collection<Cart> cartCollection;
-
+    
     public User() {
     }
 
@@ -126,7 +127,25 @@ public class User implements Serializable {
     public void setVerifyState(short verifyState) {
         this.verifyState = verifyState;
     }
-
+    public List<Cart> transfer_coll_to_list()
+    {
+        List<Cart> cart_Collection = new ArrayList<Cart>(cartCollection);
+        return cart_Collection;
+    }
+    public List<OrderDetail> transfer_od_to_list()
+    {
+        List<OrderDetail> od_Collection = new ArrayList<OrderDetail>(orderDetailCollection);
+        return od_Collection;
+    }
+    public List<Enterprise> transfer_enterprise_to_list()
+    {
+        List<Enterprise> enterprise_Collection = new ArrayList<Enterprise>(enterpriseCollection);
+        return enterprise_Collection;
+    }
+    public String delete(OrderDetail item){
+            orderDetailCollection.remove(item);
+            return null;
+    }
     @XmlTransient
     public Collection<Enterprise> getEnterpriseCollection() {
         return enterpriseCollection;
@@ -176,7 +195,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.User[ id=" + id + " ]";
+        return "databag.User[ id=" + id + " ]";
     }
     
 }
