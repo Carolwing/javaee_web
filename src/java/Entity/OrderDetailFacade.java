@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  * @author Administrator
  */
 @Stateless
-public class CartFacade extends AbstractFacade<Cart> {
+public class OrderDetailFacade extends AbstractFacade<OrderDetail> {
 
     @PersistenceContext(unitName = "WebApplication1PU")
     private EntityManager em;
@@ -24,8 +24,8 @@ public class CartFacade extends AbstractFacade<Cart> {
         return em;
     }
 
-    public CartFacade() {
-        super(Cart.class);
+    public OrderDetailFacade() {
+        super(OrderDetail.class);
     }
     
 }
