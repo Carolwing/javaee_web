@@ -64,6 +64,7 @@ public class UserFacade extends AbstractFacade<User> {
         e.setPassword(password);
         e.setRole("U");
         e.setVerifyState((short)1);
+        e.setUserLogoPath("user_logo/init_head.png");
         em.persist(e);
         
     }
@@ -90,6 +91,7 @@ public class UserFacade extends AbstractFacade<User> {
         e.setPassword(password);
         e.setRole("E");
         e.setVerifyState((short)0);
+        e.setUserLogoPath("user_logo/init_head.png");
         em.persist(e);
         return e;
     }

@@ -28,7 +28,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import javax.annotation.PostConstruct;
+import javax.faces.context.ExternalContext;
 import javax.imageio.stream.FileImageOutputStream;
+import javax.servlet.http.HttpSession;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
@@ -50,6 +52,10 @@ public class EnterpriseController implements Serializable {
     private String EnterpriseTel;
     private UploadedFile cur_upload_file = null;
     private boolean is_upload = false;
+    
+    FacesContext facesContext = FacesContext.getCurrentInstance();
+    ExternalContext extContext = facesContext.getExternalContext();
+    HttpSession session = (HttpSession) extContext.getSession(true);
 
     //创建一个User为当前账号的企业
     public String createEnterprise(User userid) throws IOException {
@@ -58,7 +64,7 @@ public class EnterpriseController implements Serializable {
         if (temp == null && is_upload == true) {
             EnterpriseLogoPath = "images/" + EnterpriseName + ".jpg";
 
-            File file = new File("my.jpg");
+            File file = new File(session.getServletContext().getRealPath(".") +"/resources/" + "images/temp/" + cur_upload_file.getFileName());
             InputStream inputStream = new FileInputStream(file);
             FileSave(inputStream, EnterpriseLogoPath, 0);
 
@@ -66,6 +72,10 @@ public class EnterpriseController implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage("企业注册申请已提交，请等待审核"));
             is_upload = false;
+            EnterpriseAddress = null;
+            EnterpriseLogoPath = null;
+            EnterpriseName = null;
+            EnterpriseTel = null;
             return "/login.xhtml";
         } else if (is_upload == true) {
             FacesContext.getCurrentInstance().addMessage(null,
@@ -81,18 +91,19 @@ public class EnterpriseController implements Serializable {
     public void handleFileUpload(FileUploadEvent event) throws IOException {
         UploadedFile file = event.getFile();
         is_upload = true;
-        this.FileSave(file.getInputstream(), file.getFileName(), 1);
+        
         cur_upload_file = file;
+        this.FileSave(file.getInputstream(), file.getFileName(), 1);
     }
 
     public void FileSave(InputStream inputStream, String imgPath, int i) throws IOException {
-        String root = "E:/文档/NetBeansProjects/WebApplication1/web/resources/";
+        String root = session.getServletContext().getRealPath(".");
         //构造一个文件，保存图片到项目的根目录下
         String path;
         if (i == 0) {
-            path = root + imgPath;
+            path = root + "../../web/resources/" + imgPath;
         } else {
-            path = root + "images/temp/my.jpg";
+            path = root +"/resources/" + "images/temp/" + cur_upload_file.getFileName();
         }
         //创建一个Buffer字符串
         try (ByteArrayOutputStream outStream = new ByteArrayOutputStream()) {
@@ -130,7 +141,7 @@ public class EnterpriseController implements Serializable {
     public String getPicturePath() {
         
             if (is_upload) 
-                return "/images/temp/my.jpg";
+                return cur_upload_file.getFileName();
             else
                 return null;
                 

@@ -62,6 +62,10 @@ public class OrderDetail implements Serializable {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private User userId;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "order_sum_price")
+    private int orderSumPrice;
 
     public OrderDetail() {
     }
@@ -115,6 +119,14 @@ public class OrderDetail implements Serializable {
 
     public void setUserId(User userId) {
         this.userId = userId;
+    }
+    
+    public int getOrderSumPrice() {
+        return orderSumPrice;
+    }
+
+    public void setOrderSumPrice(int orderSumPrice) {
+        this.orderSumPrice = orderSumPrice;
     }
 
     @Override
