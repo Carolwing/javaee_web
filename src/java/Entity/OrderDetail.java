@@ -35,12 +35,13 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "OrderDetail.findAll", query = "SELECT o FROM OrderDetail o")
     , @NamedQuery(name = "OrderDetail.findByOrderTime", query = "SELECT o FROM OrderDetail o WHERE o.orderTime = :orderTime")
     , @NamedQuery(name = "OrderDetail.findByOrderItemNum", query = "SELECT o FROM OrderDetail o WHERE o.orderItemNum = :orderItemNum")
-    , @NamedQuery(name = "OrderDetail.findById", query = "SELECT o FROM OrderDetail o WHERE o.id = :id")})
+    , @NamedQuery(name = "OrderDetail.findById", query = "SELECT o FROM OrderDetail o WHERE o.id = :id")
+    , @NamedQuery(name = "OrderDetail.findByOrderState", query = "SELECT o FROM OrderDetail o WHERE o.orderState = :orderState")
+    , @NamedQuery(name = "OrderDetail.findByOrderSumPrice", query = "SELECT o FROM OrderDetail o WHERE o.orderSumPrice = :orderSumPrice")})
 public class OrderDetail implements Serializable {
 //     @EJB
 //    OrderDetailFacade orderDetailFacade;
-    
-    
+
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
     @NotNull
@@ -78,6 +79,7 @@ public class OrderDetail implements Serializable {
     public void setOrderState(int orderState) {
         this.orderState = orderState;
     }
+
     public OrderDetail() {
     }
 
@@ -109,7 +111,7 @@ public class OrderDetail implements Serializable {
 
     public Integer getId() {
 //        return id;
-           return orderItemNum*itemId.getItemPrice();
+        return orderItemNum * itemId.getItemPrice();
     }
 
     public void setId(Integer id) {
@@ -131,7 +133,7 @@ public class OrderDetail implements Serializable {
     public void setUserId(User userId) {
         this.userId = userId;
     }
-    
+
     public int getOrderSumPrice() {
         return orderSumPrice;
     }
@@ -164,6 +166,5 @@ public class OrderDetail implements Serializable {
     public String toString() {
         return "databag.OrderDetail[ id=" + id + " ]";
     }
-    
 
 }
