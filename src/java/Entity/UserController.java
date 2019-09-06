@@ -30,7 +30,7 @@ public class UserController implements Serializable {
     private List<User> items = null;
     private User selected;
     //是否处于登录状态
-    private boolean is_log_in;
+    private boolean is_log_in = false;
     private String username;
     private String password;
     private User current_user;

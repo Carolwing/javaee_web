@@ -14,7 +14,7 @@
     </h:head>
 
     <h:body>
-        <link rel="stylesheet" href="//at.alicdn.com/t/font_1382864_pmti414wr18.css"></link>  
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1382864_jdnop6alato.css"></link>  
         <div class="main">
             <div id="header" class="header">
                 <ui:insert name="header">
@@ -24,44 +24,47 @@
                         <div class="guide_left" id="guide_left" style="height: 30px;margin-left: 45px;float: left">
                             <li class="home"><a href="template.xhtml">首页</a></li>
                             <li class="sign_in"><a href="/">注册商家</a></li>
+                            <i class="icon-icon_fabu iconfont" id="icon_search">&#xe607;</i>
+                            <h:form class="search">
+                                <p:inputText  class="searchbox"  id="username" value="#{login_info.username}" required="true" maxlength="20" placeholder="关键字搜索" requiredMessage="请输入关键字"></p:inputText>                       
+                                <p:commandButton class="search-btn"  update="username"  action="/"/>
+                            </h:form>
+
                         </div>
 
-                        <div class="guide_right" id="guide_right" style="height: 30px;margin-right: 5px;float: right">
+                        <div class="guide_right" id="guide_right" style="height: 30px;margin-left: 5px;float: right">
 
+                            <!--*****************登录和个人中心*******************-->
                             <li class="log_in">
                                 <a  href="login.xhtml"><h:outputText value="登录" rendered="#{userController.getis_log_in()==0}"/></a>    
                                 <a  href="/"><h:outputText value="个人中心" rendered="#{userController.getis_log_in()==1}"/></a>
                             </li>
-                            <c:if test="#{userController.getis_log_in()==1}">
+                            <c:if test="#{userController.getis_log_in()==0}">
                                 <i  class="icon-icon_fabu iconfont" id="icon_login">&#xe606;</i>
                             </c:if>
-                            <c:if test="#{userController.getis_log_in()==0}">
-                                <i  class="icon-icon_fabu iconfont" id="icon_login">&#xe643;</i>
+                            <c:if test="#{userController.getis_log_in()==1}">
+                                <i  class="icon-icon_fabu iconfont" id="icon_login">&#xe61d;</i>
                             </c:if>
 
-
-                            <li class="order"><a href="myorders">
-                                    <c:if test="#{userController.getis_log_in()==1}">
-                                        <a  href="/"><h:outputText value="我的订单" rendered="#{userController.getis_log_in()==1}"/></a>
-                                        <i class="icon-icon_fabu iconfont" id="icon_order">&#xe875;</i>
-                                    </c:if>
+                            <!--**************我的订单图标****************-->
+                            <li class="order"> 
+                                <c:if test="#{userController.getis_log_in()==1}">
+                                    <a href="myorders.xhtml"><h:outputText value="我的订单" rendered="#{userController.getis_log_in()==1}"/></a>                                       
+                                </c:if>
                             </li>
-
+                            <c:if test="#{userController.getis_log_in()==1}">
+                                <i class="icon-icon_fabu iconfont" id="icon_order">&#xe875;</i>
+                            </c:if>
 
                             <li class="cart">
                                 <c:if test="#{userController.getis_log_in()==1}">
-                                    <a href="cart"> <h:outputText value="购物车" rendered="#{userController.getis_log_in()==1}"/></a>
-                                    <i class="icon-icon_fabu iconfont" id="icon_cart">&#xe61a;</i>
+                                    <a href="cart"> <h:outputText value="购物车" rendered="#{userController.getis_log_in()==1}"/></a>                                  
                                 </c:if>
                             </li>  
+                            <c:if test="#{userController.getis_log_in()==1}">
+                                <i class="icon-icon_fabu iconfont" id="icon_cart">&#xe61a;</i>
+                            </c:if>
 
-
-                            <h:form class="search">
-                                <p:commandButton class="search-btn"  update="username"  action="/"/>
-                                <p:inputText  class="searchbox"  id="username" value="#{login_info.username}" required="true" maxlength="20" placeholder="关键字搜索" requiredMessage="请输入关键字"></p:inputText>                       
-
-                            </h:form>
-                            <i class="icon-icon_fabu iconfont" id="icon_search">&#xe607;</i>
                         </div>
 
                     </div>                  
