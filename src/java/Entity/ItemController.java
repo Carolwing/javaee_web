@@ -29,7 +29,79 @@ public class ItemController implements Serializable {
     private List<Item> firstflooritem;
     private List<Item> secondflooritem;
     private List<Item> thirdflooritem;
- 
+    private String itemName;
+    private int stock;
+    private int itemPrice;
+    private String itemPicPath;
+    private String itemTag;
+    private int itemSaleNum;
+    private String enterpriseName;
+    private Enterprise enterprise;
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public int getItemPrice() {
+        return itemPrice;
+    }
+
+    public void setItemPrice(int itemPrice) {
+        this.itemPrice = itemPrice;
+    }
+
+    public String getItemPicPath() {
+        return itemPicPath;
+    }
+
+    public void setItemPicPath(String itemPicPath) {
+        this.itemPicPath = itemPicPath;
+    }
+
+    public String getItemTag() {
+        return itemTag;
+    }
+
+    public void setItemTag(String itemTag) {
+        this.itemTag = itemTag;
+    }
+
+    public int getItemSaleNum() {
+        return itemSaleNum;
+    }
+
+    public void setItemSaleNum(int itemSaleNum) {
+        this.itemSaleNum = itemSaleNum;
+    }
+
+    public String getEnterpriseName() {
+        return enterpriseName;
+    }
+
+    public void setEnterpriseName(String itemEnterpriseName) {
+        this.enterpriseName = itemEnterpriseName;
+    }
+
+    public Enterprise getEnterprise() {
+        return enterprise;
+    }
+
+    public void setEnterprise(Enterprise e) {
+        this.enterprise = e;
+    }
+
     public List<Item> getFirstflooritem(int times) {
         if (times==1)
             this.firstflooritem = getFacade().getRandomItem("intellectual products");
@@ -60,6 +132,11 @@ public class ItemController implements Serializable {
         this.thirdflooritem = thirdflooritem;
     }
 
+    public void create_item(String enterprise_name) {
+        getFacade().create_enterprise_item(itemName, stock, itemPrice, itemPicPath, itemTag, itemSaleNum, enterprise_name);
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage("商品添加成功"));
+    }
     
     public ItemController() {
     }

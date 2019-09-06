@@ -1,4 +1,4 @@
-/*
+﻿/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -51,4 +51,17 @@ public class EnterpriseFacade extends AbstractFacade<Enterprise> {
             return null;
         }
     }
+
+  public List<Item> getCurItems(String curEnterpriseName){
+       List<Item> curItems;
+    try{   
+         curItems=( List<Item>)em.createQuery("SELECT i FROM Item i WHERE i.enterpriseId.enterpriseName=:curEnterpriseName")
+              .setParameter("curEnterpriseName",curEnterpriseName)
+              .getResultList();
+         return curItems;
+    }
+    catch (NoResultException e){
+        return null;
+    }
+   }
 }

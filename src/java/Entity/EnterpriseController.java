@@ -1,4 +1,4 @@
-package Entity;
+﻿package Entity;
 
 import Entity.util.JsfUtil;
 import Entity.util.JsfUtil.PersistAction;
@@ -134,6 +134,11 @@ public class EnterpriseController implements Serializable {
             else
                 return null;
                 
+    }
+   public List<Item> getcurItems(String name){
+      List<Item> curItems=getFacade().getCurItems(name);
+        return curItems;
+     
     }
 
     public EnterpriseController() {
