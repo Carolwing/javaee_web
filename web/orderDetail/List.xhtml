@@ -59,6 +59,18 @@
                             </f:facet>
                             <h:outputText value="#{item.userId}"/>
                         </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrderDetailTitle_OrderSumPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.orderSumPrice}"/>
+                        </p:column>
+                         <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrderDetailTitle_OrderState}"/>
+                            </f:facet>
+                             <h:outputText value="#{item.orderState}"/>
+                        </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{orderDetailController.prepareCreate}" update=":OrderDetailCreateForm" oncomplete="PF('OrderDetailCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":OrderDetailViewForm" oncomplete="PF('OrderDetailViewDialog').show()" disabled="#{empty orderDetailController.selected}"/>
