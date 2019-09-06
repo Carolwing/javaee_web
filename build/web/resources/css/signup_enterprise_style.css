@@ -24,7 +24,7 @@
 }
 
 .signup-form{
-    height: 300px !important;
+    height: 350px !important;
     width: 320px!important;
     align-content: center !important;
     margin-left: 30px !important;
@@ -33,15 +33,15 @@
 
 }
 .signup-panel{
-    height: 450px!important;
+    height: 520px!important;
     width: 380px !important;
     margin-left: 320px !important;
-    margin-top: 20px !important;
+    margin-top: -10px !important;
     float: left !important;
 }
 
 .img{
-    margin-left: 130px;
+    margin-left: 110px;
 }
 
 .signup-outputlable{
@@ -140,6 +140,7 @@
 
 .gimg{
     display: table-row;
+    /*margin-right: 60px;*/
 }
 /*.ui-fileupload-upload {
     position: relative;
