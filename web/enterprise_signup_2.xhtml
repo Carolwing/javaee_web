@@ -28,7 +28,7 @@
                                 <p:fileUpload fileUploadListener="#{enterpriseController.handleFileUpload}" allowTypes="/(\.|\/)(jpe?g|png)$/" mode="advanced" 
                                               required="true" auto="true" requiredMessage="请选择图片！" label="导入图片" id="fileuploader" update="gimg" fileLimit="10000"/>
                                 <br/>
-                                <p:graphicImage  alt="预览图片" url="/resources/images/temp/#{enterpriseController.cur_upload_file.fileName}" class="img" height="120" width="120" id="gimg" />
+                                <p:graphicImage  alt="预览图片" url="/resources/images/temp/#{enterpriseController.picturePath}" class="img" height="120" width="120" id="gimg" />
                                
 
                             </h:form>
