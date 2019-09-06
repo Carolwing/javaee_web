@@ -66,6 +66,18 @@ public class User implements Serializable {
     @NotNull
     @Column(name = "verify_state")
     private short verifyState;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "user_logo_path")
+    private String userLogoPath;
+    @Size(max = 45)
+    @Column(name = "user_nickname")
+    private String userNickname;
+    @Size(max = 45)
+    @Column(name = "user_address")
+    private String userAddress;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     private Collection<Enterprise> enterpriseCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
@@ -127,6 +139,31 @@ public class User implements Serializable {
     public void setVerifyState(short verifyState) {
         this.verifyState = verifyState;
     }
+
+public String getUserLogoPath() {
+        return userLogoPath;
+    }
+
+    public void setUserLogoPath(String userLogoPath) {
+        this.userLogoPath = userLogoPath;
+    }
+
+    public String getUserNickname() {
+        return userNickname;
+    }
+
+    public void setUserNickname(String userNickname) {
+        this.userNickname = userNickname;
+    }
+
+    public String getUserAddress() {
+        return userAddress;
+    }
+
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
+    }
+
     public List<Cart> transfer_coll_to_list()
     {
         List<Cart> cart_Collection = new ArrayList<Cart>(cartCollection);
