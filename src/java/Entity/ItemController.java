@@ -32,7 +32,7 @@ public class ItemController implements Serializable {
  
     public List<Item> getFirstflooritem(int times) {
         if (times==1)
-            this.firstflooritem = getFacade().getRandomItem("intellectual products");
+            this.firstflooritem = getFacade().getRandomItem("智能产品");
         return firstflooritem;
     }
 
@@ -42,7 +42,7 @@ public class ItemController implements Serializable {
 
     public List<Item> getSecondflooritem(int times) {
         if (times==1)
-            this.secondflooritem = getFacade().getRandomItem("women clothes");
+            this.secondflooritem = getFacade().getRandomItem("女装");
         return secondflooritem;
     }
 
@@ -52,7 +52,7 @@ public class ItemController implements Serializable {
 
     public List<Item> getThirdflooritem(int times) {
         if (times==1)
-            this.thirdflooritem = getFacade().getRandomItem("food");
+            this.thirdflooritem = getFacade().getRandomItem("食品");
         return thirdflooritem;
     }
 
