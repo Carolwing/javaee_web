@@ -142,7 +142,7 @@ public class EnterpriseController implements Serializable {
     public String getPicturePath() {
         
             if (is_upload) 
-                return "/images/temp/" + cur_upload_file.getFileName();
+                return cur_upload_file.getFileName();
             else
                 return null;
                 
