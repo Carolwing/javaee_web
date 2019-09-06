@@ -7,7 +7,6 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.ejb.EJB;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author VictorChan
+ * @author Administrator
  */
 @Entity
 @Table(name = "order_detail")
@@ -37,10 +36,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "OrderDetail.findByOrderItemNum", query = "SELECT o FROM OrderDetail o WHERE o.orderItemNum = :orderItemNum")
     , @NamedQuery(name = "OrderDetail.findById", query = "SELECT o FROM OrderDetail o WHERE o.id = :id")})
 public class OrderDetail implements Serializable {
-//     @EJB
-//    OrderDetailFacade orderDetailFacade;
-    
-    
+
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
     @NotNull
@@ -62,6 +58,10 @@ public class OrderDetail implements Serializable {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private User userId;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "order_sum_price")
+    private int orderSumPrice;
 
     public OrderDetail() {
     }
@@ -93,8 +93,7 @@ public class OrderDetail implements Serializable {
     }
 
     public Integer getId() {
-//        return id;
-           return orderItemNum*itemId.getItemPrice();
+        return id;
     }
 
     public void setId(Integer id) {
@@ -116,6 +115,16 @@ public class OrderDetail implements Serializable {
     public void setUserId(User userId) {
         this.userId = userId;
     }
+
+    public int getOrderSumPrice() {
+        return orderSumPrice;
+    }
+
+    public void setOrderSumPrice(int orderSumPrice) {
+        this.orderSumPrice = orderSumPrice;
+    }
+    
+    
 
     @Override
     public int hashCode() {
@@ -139,8 +148,7 @@ public class OrderDetail implements Serializable {
 
     @Override
     public String toString() {
-        return "databag.OrderDetail[ id=" + id + " ]";
+        return "Entity.OrderDetail[ id=" + id + " ]";
     }
     
-
 }
