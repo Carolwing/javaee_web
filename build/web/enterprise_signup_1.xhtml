@@ -28,12 +28,12 @@
                                 <p:outputLabel value="企业注册" class="login-outputlable"/>
 
                                 <h:panelGrid columns="3" cellspacing="5" class="login-panelgrid-row" id="login-panelgrid">
-                                    <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="firstname"/>
+                                    <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="firstname" class="gimg"/>
                                     <p:inputText id="username" value="#{userController.username}" required="true" maxlength="20" placeholder="输入企业账号名" requiredMessage="请输入企业账号名">
                                     </p:inputText>
                                     <p:message for="username" id="user_msgs" class="login-msgs" display="icon"/>
 
-                                    <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="firstname"/>
+                                    <img src="resources/images/head.jpg" width="30" height="30" alt="head" for="firstname" class="gimg"/>
                                     <p:password id="password" value="#{userController.password}" required="true" maxlength="20" placeholder="输入密码" requiredMessage="请输入密码">
                                     </p:password>
                                     <p:message for="password" id="password_msgs" class="login-msgs" display="icon"/>

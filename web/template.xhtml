@@ -4,7 +4,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <h:head>
         <title><ui:insert name="title">Default Title</ui:insert></title>
@@ -26,12 +27,34 @@
                         </div>
 
                         <div class="guide_right" id="guide_right" style="height: 30px;margin-right: 5px;float: right">
-                            <li class="log_in"><a href="login.xhtml">登录</a></li>
-                            <i class="icon-icon_fabu iconfont" id="icon_login">&#xe606;</i>
-                            <li class="order"><a href="myorders">我的订单</a></li>
-                            <i class="icon-icon_fabu iconfont" id="icon_order">&#xe875;</i>
-                            <li class="cart"><a href="cart">购物车</a></li>  
-                            <i class="icon-icon_fabu iconfont" id="icon_cart">&#xe61a;</i>
+
+                            <li class="log_in">
+                                <a  href="login.xhtml"><h:outputText value="登录" rendered="#{userController.getis_log_in()==0}"/></a>    
+                                <a  href="/"><h:outputText value="个人中心" rendered="#{userController.getis_log_in()==1}"/></a>
+                            </li>
+                            <c:if test="#{userController.getis_log_in()==1}">
+                                <i  class="icon-icon_fabu iconfont" id="icon_login">&#xe606;</i>
+                            </c:if>
+                            <c:if test="#{userController.getis_log_in()==0}">
+                                <i  class="icon-icon_fabu iconfont" id="icon_login">&#xe643;</i>
+                            </c:if>
+
+
+                            <li class="order"><a href="myorders">
+                                    <c:if test="#{userController.getis_log_in()==1}">
+                                        <a  href="/"><h:outputText value="我的订单" rendered="#{userController.getis_log_in()==1}"/></a>
+                                        <i class="icon-icon_fabu iconfont" id="icon_order">&#xe875;</i>
+                                    </c:if>
+                            </li>
+
+
+                            <li class="cart">
+                                <c:if test="#{userController.getis_log_in()==1}">
+                                    <a href="cart"> <h:outputText value="购物车" rendered="#{userController.getis_log_in()==1}"/></a>
+                                    <i class="icon-icon_fabu iconfont" id="icon_cart">&#xe61a;</i>
+                                </c:if>
+                            </li>  
+
 
                             <h:form class="search">
                                 <p:commandButton class="search-btn"  update="username"  action="/"/>
@@ -62,9 +85,9 @@
                         </div>
                     </div>
                     <!--< *******************登录块!*********************** />-->
-                    
+
                     <div class="login">
-                        <h:form class="login-form">
+                        <h:form rendered="#{userController.getis_log_in()==0}" class="login-form">
                             <p:panel id="panel" class="login-panel">
                                 <p:outputLabel value="密码登录" class="login-outputlable"/>
 
@@ -81,7 +104,7 @@
                                     <p:message for="password" id="password_msgs" class="login-msgs" display="icon"/>
                                 </h:panelGrid>
 
-                                <p:commandButton value="登录" update="panel" class="login-btn" action="#{userController.login('template.xhtml')}" />
+                                <p:commandButton  value="登录" update="panel" class="login-btn" action="#{userController.login('template.xhtml')}" />
 
                                 <p:messages id="msgs" class="login-msgs" showDetail="false" showIcon="false"/>
                                 <p:link outcome="user_signup" value="用户注册" class="sign-up-link"/>
@@ -176,7 +199,7 @@
                             <p:outputLabel value="#{itemController.getSecondflooritem(0).get(1).itemPrice}" class="test"  />
                         </div>
                         <div class="item">
-                             <h:form>
+                            <h:form>
                                 <h:commandLink action="#{goodParameter.itemDetail(itemController.getSecondflooritem(0).get(2))}">
                                     <h:graphicImage  value="#{resource[itemController.getSecondflooritem(0).get(2).itemPicPath]}" alt="logo"/>                                     
                                     <f:param id="id" name="id" value="#{itemController.getSecondflooritem(0).get(2)}"></f:param> 
@@ -188,7 +211,7 @@
                             <p:outputLabel value="#{itemController.getSecondflooritem(0).get(2).itemPrice}" class="test"  />
                         </div>
                         <div class="item">
-                             <h:form>
+                            <h:form>
                                 <h:commandLink action="#{goodParameter.itemDetail(itemController.getSecondflooritem(0).get(3))}">
                                     <h:graphicImage  value="#{resource[itemController.getSecondflooritem(0).get(3).itemPicPath]}" alt="logo"/>                                     
                                     <f:param id="id" name="id" value="#{itemController.getSecondflooritem(0).get(3)}"></f:param> 
@@ -200,7 +223,7 @@
                             <p:outputLabel value="#{itemController.getSecondflooritem(0).get(3).itemPrice}" class="test"  />
                         </div>
                         <div class="item">
-                             <h:form>
+                            <h:form>
                                 <h:commandLink action="#{goodParameter.itemDetail(itemController.getSecondflooritem(0).get(4))}">
                                     <h:graphicImage  value="#{resource[itemController.getSecondflooritem(0).get(4).itemPicPath]}" alt="logo"/>                                     
                                     <f:param id="id" name="id" value="#{itemController.getSecondflooritem(0).get(4)}"></f:param> 
@@ -215,7 +238,7 @@
                     <div class="floor">
                         <h:graphicImage class="tag" value="#{resource['images:logo.png']}" alt="logo"/>
                         <div class="item">
-                             <h:form>
+                            <h:form>
                                 <h:commandLink action="#{goodParameter.itemDetail(itemController.getThirdflooritem(0).get(0))}">
                                     <h:graphicImage  value="#{resource[itemController.getThirdflooritem(1).get(0).itemPicPath]}" alt="logo"/>                                     
                                     <f:param id="id" name="id" value="#{itemController.getThirdflooritem(0).get(0)}"></f:param> 
@@ -251,7 +274,7 @@
                             <p:outputLabel value="#{itemController.getThirdflooritem(0).get(2).itemPrice}" class="test"  />
                         </div>
                         <div class="item">
-                           <h:form>
+                            <h:form>
                                 <h:commandLink action="#{goodParameter.itemDetail(itemController.getThirdflooritem(0).get(3))}">
                                     <h:graphicImage  value="#{resource[itemController.getThirdflooritem(0).get(3).itemPicPath]}" alt="logo"/>                                     
                                     <f:param id="id" name="id" value="#{itemController.getThirdflooritem(0).get(3)}"></f:param> 

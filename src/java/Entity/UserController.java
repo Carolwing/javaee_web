@@ -37,6 +37,26 @@ public class UserController implements Serializable {
     private User curUser;
     private List<OrderDetail> orderCollection;
 
+    /**
+     * 平雅霓 
+     * 获取当前的登录状态
+     */
+    public int getis_log_in() {
+        if (is_log_in == false) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+    public void setState(int state) {
+        if (state == 0) {
+            this.is_log_in = false;
+        } else {
+            this.is_log_in = true;
+        }
+    }
+
     //陈志刚
     public User getcurUser() {
         curUser = getFacade().getCurUser(7);

@@ -1,13 +1,18 @@
 .main{
-    background-color: white !important;
-    height: 630px !important;
+    background: #f2dede !important;
+    height: 700px !important;
+    background: #cccccc !important;
 }
 .body{
-    height: 630px !important;
+    height: 610px !important;
+    background: url("images/login-bg.jpg") no-repeat !important;
+    background-size: 100% 100% !important;
 }
 
 .footer{
-    position: fixed!important;;
+    margin-top: 17px;
+    float:left !important;
+
 }
 
 .login{
@@ -24,6 +29,7 @@
 .login-panel{
     height: 290px!important;
     width: 320px !important;
+/*    background: #ccccff !important;*/
 }
 
 .login-outputlable{
@@ -57,5 +63,9 @@
     position: absolute;
     left: 1010px !important;
     top: 440px !important;
+}
+
+.gimg{
+    display: table-row;
 }
 
