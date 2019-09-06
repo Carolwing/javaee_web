@@ -66,7 +66,18 @@ public class OrderDetail implements Serializable {
     @NotNull
     @Column(name = "order_sum_price")
     private int orderSumPrice;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "order_state")
+    private int orderState;
 
+    public int getOrderState() {
+        return orderState;
+    }
+
+    public void setOrderState(int orderState) {
+        this.orderState = orderState;
+    }
     public OrderDetail() {
     }
 
