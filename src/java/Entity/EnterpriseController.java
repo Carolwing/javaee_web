@@ -1,4 +1,4 @@
-package Entity;
+﻿package Entity;
 
 import Entity.util.JsfUtil;
 import Entity.util.JsfUtil.PersistAction;
@@ -51,6 +51,10 @@ public class EnterpriseController implements Serializable {
     private UploadedFile cur_upload_file = null;
     private boolean is_upload = false;
 
+    FacesContext facesContext = FacesContext.getCurrentInstance();
+    ExternalContext extContext = facesContext.getExternalContext();
+    HttpSession session = (HttpSession) extContext.getSession(true);
+
     //创建一个User为当前账号的企业
     public String createEnterprise(User userid) throws IOException {
         Enterprise temp = getFacade().getIsDuplicate(EnterpriseName);
@@ -66,6 +70,11 @@ public class EnterpriseController implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage("企业注册申请已提交，请等待审核"));
             is_upload = false;
+            EnterpriseAddress = null;
+            EnterpriseLogoPath = null;
+            EnterpriseName = null;
+            EnterpriseTel = null;
+
             return "/login.xhtml";
         } else if (is_upload == true) {
             FacesContext.getCurrentInstance().addMessage(null,
@@ -81,19 +90,22 @@ public class EnterpriseController implements Serializable {
     public void handleFileUpload(FileUploadEvent event) throws IOException {
         UploadedFile file = event.getFile();
         is_upload = true;
-        this.FileSave(file.getInputstream(), file.getFileName(), 1);
         cur_upload_file = file;
+        this.FileSave(file.getInputstream(), file.getFileName(), 1);
+        
     }
 
     public void FileSave(InputStream inputStream, String imgPath, int i) throws IOException {
-        String root = "E:/文档/NetBeansProjects/WebApplication1/web/resources/";
+        String root = session.getServletContext().getRealPath(".");
+
         //构造一个文件，保存图片到项目的根目录下
         String path;
         if (i == 0) {
-            path = root + imgPath;
+            path = root + "/../../web/resources/" + imgPath;
         } else {
-            path = root + "images/temp/my.jpg";
+            path = root +"/resources/" + "images/temp/" + cur_upload_file.getFileName();
         }
+
         //创建一个Buffer字符串
         try (ByteArrayOutputStream outStream = new ByteArrayOutputStream()) {
             //创建一个Buffer字符串
@@ -130,7 +142,7 @@ public class EnterpriseController implements Serializable {
     public String getPicturePath() {
         
             if (is_upload) 
-                return "/images/temp/my.jpg";
+                return "/images/temp/" + cur_upload_file.getFileName();
             else
                 return null;
                 
