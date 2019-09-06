@@ -8,13 +8,13 @@
       xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <h:head>
-        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <title><ui:insert name="title">home</ui:insert></title>
         <h:outputScript library="js" name="home.js"/>
         <h:outputStylesheet library="css" name="template.css"/>
     </h:head>
 
     <h:body>
-        <link rel="stylesheet" href="//at.alicdn.com/t/font_1382864_jdnop6alato.css"></link>  
+        <link rel="stylesheet" href="//at.alicdn.com/t/font_1382864_p10lwzago5.js"></link>  
         <div class="main">
             <div id="header" class="header">
                 <ui:insert name="header">
@@ -22,8 +22,8 @@
                         <h:graphicImage value="#{resource['images:logo.png']}"
                                         alt="logo"/>
                         <div class="guide_left" id="guide_left" style="height: 30px;margin-left: 45px;float: left">
-                            <li class="home"><a href="template.xhtml">首页</a></li>
-                            <li class="sign_in"><a href="/">注册商家</a></li>
+                            <li class="home"><a href="template.xhtml">首页</a></li>                         
+                            <li class="sign_in"><a href="/"><h:outputText value="注册商家" rendered="#{userController.getis_log_in()==0}"/></a></li>
                             <i class="icon-icon_fabu iconfont" id="icon_search">&#xe607;</i>
                             <h:form class="search">
                                 <p:inputText  class="searchbox"  id="username" value="#{login_info.username}" required="true" maxlength="20" placeholder="关键字搜索" requiredMessage="请输入关键字"></p:inputText>                       
@@ -37,7 +37,7 @@
                             <!--*****************登录和个人中心*******************-->
                             <li class="log_in">
                                 <a  href="login.xhtml"><h:outputText value="登录" rendered="#{userController.getis_log_in()==0}"/></a>    
-                                <a  href="/"><h:outputText value="个人中心" rendered="#{userController.getis_log_in()==1}"/></a>
+                                <a  href="personal_center.xhtml"><h:outputText value="个人中心" rendered="#{userController.getis_log_in()==1}"/></a>
                             </li>
                             <c:if test="#{userController.getis_log_in()==0}">
                                 <i  class="icon-icon_fabu iconfont" id="icon_login">&#xe606;</i>
