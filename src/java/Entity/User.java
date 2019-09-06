@@ -77,7 +77,7 @@ public class User implements Serializable {
     @Size(max = 45)
     @Column(name = "user_address")
     private String userAddress;
-
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     private Collection<Enterprise> enterpriseCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
@@ -139,8 +139,8 @@ public class User implements Serializable {
     public void setVerifyState(short verifyState) {
         this.verifyState = verifyState;
     }
-
-public String getUserLogoPath() {
+    
+     public String getUserLogoPath() {
         return userLogoPath;
     }
 
@@ -163,7 +163,8 @@ public String getUserLogoPath() {
     public void setUserAddress(String userAddress) {
         this.userAddress = userAddress;
     }
-
+    
+    
     public List<Cart> transfer_coll_to_list()
     {
         List<Cart> cart_Collection = new ArrayList<Cart>(cartCollection);

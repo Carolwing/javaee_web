@@ -46,13 +46,13 @@ public class Cart implements Serializable {
     @JoinColumn(name = "item_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Item itemId;
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private User userId;
     @Basic(optional = false)
     @NotNull
     @Column(name = "cart_sum_price")
     private Integer cartSumPrice;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private User userId;
 
     public Cart() {
     }
@@ -92,16 +92,14 @@ public class Cart implements Serializable {
     public void setUserId(User userId) {
         this.userId = userId;
     }
-
-    public Integer getCartSumPrice() {
+    
+     public Integer getCartSumPrice() {
         return cartSumPrice;
     }
 
     public void setCartSumPrice(Integer cartSumPrice) {
         this.cartSumPrice = cartSumPrice;
     }
-    
-    
 
     @Override
     public int hashCode() {
