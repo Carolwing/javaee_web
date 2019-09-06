@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -33,6 +34,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Cart implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "cart_item_num")
     private Integer cartItemNum;
     @Id
@@ -46,6 +49,10 @@ public class Cart implements Serializable {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private User userId;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "cart_sum_price")
+    private Integer cartSumPrice;
 
     public Cart() {
     }
@@ -85,6 +92,16 @@ public class Cart implements Serializable {
     public void setUserId(User userId) {
         this.userId = userId;
     }
+
+    public Integer getCartSumPrice() {
+        return cartSumPrice;
+    }
+
+    public void setCartSumPrice(Integer cartSumPrice) {
+        this.cartSumPrice = cartSumPrice;
+    }
+    
+    
 
     @Override
     public int hashCode() {
