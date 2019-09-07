@@ -58,6 +58,8 @@ public class UserController implements Serializable {
         return "template.xhtml";
     }
 
+    
+      
     //陈志刚
     public User getcurUser() {
         curUser = getFacade().getCurUser(7);

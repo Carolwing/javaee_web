@@ -99,8 +99,8 @@ public class UserFacade extends AbstractFacade<User> {
     //检索得到当前企业账号的企业对象
     public Enterprise getCurrentEnterprise(User user){
         Enterprise enterprise;
-        enterprise=(Enterprise)em.createQuery("SELECT e FROM Enterprise e WHERE e.userId=:id")
-                .setParameter("id", user.getId())
+        enterprise=(Enterprise)em.createQuery("SELECT e FROM Enterprise e WHERE e.userId=:user")
+                .setParameter("user", user)
                 .getSingleResult();
         return enterprise;
     }

@@ -89,13 +89,7 @@ public class EnterpriseController implements Serializable {
     }
 
     
-     public String enterprise_log_out(){
-        if(is_login==true){
-        is_login=false;
-        return "/template.xhtml";
-        }
-        else return "/template.xhtml";
-}
+    
      
     public void handleFileUpload(FileUploadEvent event) throws IOException {
         UploadedFile file = event.getFile();
@@ -110,7 +104,7 @@ public class EnterpriseController implements Serializable {
         //构造一个文件，保存图片到项目的根目录下
         String path;
         if (i == 0) {
-            path = root + "../../web/resources/" + imgPath;
+            path = root + "/../../web/resources/" + imgPath;
         } else {
             path = root +"/resources/" + "images/temp/" + cur_upload_file.getFileName();
         }
