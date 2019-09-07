@@ -32,9 +32,14 @@
 
                         </div>
 
-                        <div class="guide_right" id="guide_right" style="height: 30px;margin-left: 5px;float: right">
+                        <div class="guide_right" id="guide_right" style="height: 30px;width:380px;  margin-left: 5px;float: right">
 
                             <!--*****************登录和个人中心*******************-->
+                            <h:form>
+                                <h:commandLink class="log_out" action="#{userController.setState(0)}">                                     
+                                    <h:outputText style="" value="登出" rendered="#{userController.getis_log_in()==1}" />                                     
+                                </h:commandLink>
+                            </h:form>
                             <li class="log_in">
                                 <a  href="login.xhtml"><h:outputText value="登录" rendered="#{userController.getis_log_in()==0}"/></a>    
                                 <a  href="personal_center.xhtml"><h:outputText value="个人中心" rendered="#{userController.getis_log_in()==1}"/></a>
@@ -88,9 +93,20 @@
                         </div>
                     </div>
                     <!--< *******************登录块!*********************** />-->
+          
+                        <h:form class="logged_panel" rendered="#{userController.getis_log_in()==1}">
+                            <div class="logo">
+                                <h:graphicImage  value="#{resource['images:daifahuo.png']}" alt="user_logo"/>      
+                            </div> 
+                            <h:outputText style=" float: left;margin-left: 88px;margin-top: 25px;" 
+                                          value="欢迎#{userController.current_user.name}，您已登录！"/>        
+                            <h:commandButton value="登出"  class="logged-btn" action="#{userController.login('/template.xhtml')}" />
+                        </h:form>
+
+                  
 
                     <div class="login">
-                        <h:form rendered="#{userController.getis_log_in()==0}" class="login-form">
+                        <h:form  rendered="#{userController.getis_log_in()==0}" class="login-form">
                             <p:panel id="panel" class="login-panel">
                                 <p:outputLabel value="密码登录" class="login-outputlable"/>
 
@@ -105,10 +121,8 @@
                                     <p:password id="password" value="#{userController.password}" required="true" maxlength="20" placeholder="输入密码" requiredMessage="请输入密码">
                                     </p:password>
                                     <p:message for="password" id="password_msgs" class="login-msgs" display="icon"/>
-                                </h:panelGrid>
-
-                                <p:commandButton  value="登录" update="panel" class="login-btn" action="#{userController.login('template.xhtml')}" />
-
+                                </h:panelGrid>                                                          
+                                <h:commandButton value="登录"  class="login-btn" action="#{userController.login('/template.xhtml')}" />
                                 <p:messages id="msgs" class="login-msgs" showDetail="false" showIcon="false"/>
                                 <p:link outcome="user_signup" value="用户注册" class="sign-up-link"/>
 
