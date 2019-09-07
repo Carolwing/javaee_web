@@ -84,4 +84,22 @@ public class EnterpriseFacade extends AbstractFacade<Enterprise> {
             ex.getConstraintViolations().forEach(err -> logger.log(Level.SEVERE, err.toString()));
         }
     }
+    
+    public List<Item> getCurItems(String curEnterpriseName){
+       List<Item> curItems;
+    try{   
+//        curEnterprise= (Enterprise)em.createQuery("SELECT e FROM Enterprise e WHERE e.enterpriseName=:curEnterpriseName")
+//                .setParameter("curEnterpriseName",curEnterpriseName)
+//                .getSingleResult();
+//         return curEnterprise;
+         curItems=( List<Item>)em.createQuery("SELECT i FROM Item i WHERE i.enterpriseId.enterpriseName=:curEnterpriseName")
+              .setParameter("curEnterpriseName",curEnterpriseName)
+              .getResultList();
+         return curItems;
+    }
+    catch (NoResultException e){
+        return null;
+    }
+   }
+    
 }

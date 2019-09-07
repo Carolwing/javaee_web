@@ -37,7 +37,7 @@
                         </p:outputLabel >
                          <h:outputText id="enterpriseId" value="#{itemController.selected.enterpriseId.enterpriseName}" title="#{bundle.EditItemTitle_itemSaleNum}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{itemController.update}" value="#{bundle.Save}" update="display,:ItemListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ItemEditDialog');"/>
+                    <p:commandButton actionListener="#{itemController.update}" value="#{bundle.Save}" update="display,:ItemListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ItemEditDialog');" onclick="ItemEditDialog.hide()"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ItemEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

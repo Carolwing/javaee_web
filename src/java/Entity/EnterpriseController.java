@@ -88,6 +88,15 @@ public class EnterpriseController implements Serializable {
         }
     }
 
+    
+     public String enterprise_log_out(){
+        if(is_login==true){
+        is_login=false;
+        return "/template.xhtml";
+        }
+        else return "/template.xhtml";
+}
+     
     public void handleFileUpload(FileUploadEvent event) throws IOException {
         UploadedFile file = event.getFile();
         is_upload = true;
@@ -159,6 +168,11 @@ public class EnterpriseController implements Serializable {
         return getFacade().getAllUnCheckEnterprise();
     }
 
+     public List<Item> getcurItems(String name){
+      List<Item> curItems=getFacade().getCurItems(name);
+        return curItems;
+     
+    }
     public EnterpriseController() {
     }
 

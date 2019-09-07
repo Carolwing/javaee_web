@@ -70,4 +70,19 @@ public class ItemFacade extends AbstractFacade<Item> {
         }
         return floorlist;
     }
+     public void create_enterprise_item(String itemName,int stock,int itemPrice,String itemPicPath ,String itemTag,int itemSaleNum,String enterpriseName){
+        Item i= new Item();
+        i.setItemName(itemName);
+        i.setStock(stock);
+        i.setItemPrice(itemPrice);
+        i.setItemPicPath(itemPicPath);
+        i.setItemTag(itemTag);
+        i.setItemSaleNum(itemSaleNum);
+       Enterprise e=(Enterprise)em.createQuery("SELECT e FROM Enterprise e WHERE e.enterpriseName=:enterpriseName")
+              .setParameter("enterpriseName",enterpriseName)
+              .getSingleResult();
+       i.setEnterpriseId(e);
+        em.persist(i);
+  
+    }
 }
