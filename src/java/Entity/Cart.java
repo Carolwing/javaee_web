@@ -48,7 +48,7 @@ public class Cart implements Serializable {
     private Item itemId;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "cart_sum_price")
+    @Column(name = "cart_sun_price")
     private Integer cartSumPrice;
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @ManyToOne(optional = false)

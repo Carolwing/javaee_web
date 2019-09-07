@@ -36,6 +36,8 @@ public class UserController implements Serializable {
     private User current_user;
     private User curUser;
     private List<OrderDetail> orderCollection;
+    private Enterprise current_enterprise;
+
 
     /**
      * 平雅霓 
@@ -90,7 +92,18 @@ public class UserController implements Serializable {
                         new FacesMessage("成功登录"));
 
                 //判断此时user的角色，要判断！！！
-                return "/index.xhtml";
+                if (current_user.getRole().compareTo("A")==0)
+                {
+                    current_enterprise=null;
+                    return "/administrator.xhtml";
+                }
+                else if (current_user.getRole().compareTo("E")==0)
+                {
+                    current_enterprise=getFacade().getCurrentEnterprise(current_user);
+                    return "/enterprise_homepage.xhtml";
+                }
+                else
+                    return "/template.xhtml";
             }
         } else {
             FacesContext.getCurrentInstance().addMessage(null,
@@ -132,6 +145,15 @@ public class UserController implements Serializable {
 
             return "/enterprise_signup_2.xhtml";
         }
+    }
+    
+    //调用该函数执行退出登录操作，转到首页
+    public String user_logout(){
+        is_log_in=false;
+        current_user=null;
+        current_enterprise=null;
+        
+        return "/template.xhtml";
     }
 
     public User getSelected() {

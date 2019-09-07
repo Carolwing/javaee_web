@@ -146,6 +146,18 @@ public class EnterpriseController implements Serializable {
                 return null;
                 
     }
+    
+    public void accept(){
+        getFacade().accept(selected);
+    }
+    
+    public void refuse(){
+        getFacade().delete(selected);
+    }
+    
+    public List<Enterprise> getAllUnCheckEnterprise(){
+        return getFacade().getAllUnCheckEnterprise();
+    }
 
     public EnterpriseController() {
     }

@@ -65,7 +65,7 @@ public class OrderDetail implements Serializable {
     private User userId;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "order_sum_price")
+    @Column(name = "order_sun_price")
     private int orderSumPrice;
     @Basic(optional = false)
     @NotNull
@@ -164,7 +164,7 @@ public class OrderDetail implements Serializable {
 
     @Override
     public String toString() {
-        return "databag.OrderDetail[ id=" + id + " ]";
+        return "Entity.OrderDetail[ id=" + id + " ]";
     }
 
 }

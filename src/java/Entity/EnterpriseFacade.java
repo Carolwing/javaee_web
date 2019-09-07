@@ -5,10 +5,14 @@
  */
 package Entity;
 
+import static com.sun.xml.ws.security.addressing.impl.policy.Constants.logger;
+import java.util.List;
+import java.util.logging.Level;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.validation.ConstraintViolationException;
 
 /**
  *
@@ -49,6 +53,35 @@ public class EnterpriseFacade extends AbstractFacade<Enterprise> {
             return mEnterprise;
         }catch (NoResultException e){
             return null;
+        }
+    }
+    
+    public List<Enterprise> getAllUnCheckEnterprise() {
+        List<Enterprise> l;
+        l = (List<Enterprise>) em.createQuery("SELECT e FROM Enterprise e WHERE e.userId In(SELECT u FROM User u WHERE u.verifyState=0)").getResultList();
+        return l;
+    }
+
+    public void accept(Enterprise e) {
+        try {
+            User u = em.find(User.class, e.getUserId().getId());
+            u.setVerifyState((short) 1);
+            u.setUserLogoPath("user_logo/init_head.png");
+            em.merge(u);
+        } catch (ConstraintViolationException ex) {
+            ex.getConstraintViolations().forEach(err -> logger.log(Level.SEVERE, err.toString()));
+        }
+    }
+
+    public void delete(Enterprise e) {
+         try {
+            User u = em.find(User.class, e.getUserId().getId());
+            Enterprise enterprise=em.find(Enterprise.class, e.getId());
+            em.remove(enterprise);
+            u.setUserLogoPath("user_logo/init_head.png");
+            em.remove(u);
+        } catch (ConstraintViolationException ex) {
+            ex.getConstraintViolations().forEach(err -> logger.log(Level.SEVERE, err.toString()));
         }
     }
 }
