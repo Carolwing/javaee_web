@@ -136,6 +136,16 @@ table {
     list-style: none;
     font-size: 15px;
 }
+.log_out{
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    float:right;
+    margin-top:9px;
+    margin-left: 20px;
+    list-style: none;
+    font-size: 15px;
+    color: #fff;
+    text-decoration: none;
+}
 
 .guide_right li a {
     color: #fff;
@@ -285,16 +295,12 @@ table {
     background: white;
 }
 
-.login{
+.login-form{
     height: 300px;
     width:330px;
     float: right;
     margin-top: 20px;
     margin-right:30px;
-}
-.login-form{
-    height: 290px;
-    width: 320px;
 }
 .login-panel{
     height: 290px;
@@ -368,4 +374,36 @@ table {
     font-size: 13px!important;
     text-decoration: none;
     list-style: none;
+}
+/*已登录的框*/
+.logged_panel{
+    float:right;
+    margin-right: 30px;
+    height: 300px;
+    width: 330px;
+    margin-top: 20px;
+    background-color: green;
+}
+.logo{
+    float: left;
+    margin-left: 120px;
+    margin-top: 50px;
+    background-color: pink;
+    width:90px;
+    height:90px;
+    border-radius:50px;
+    border:solid rgb(100,100,100) 1px;
+}
+.logo img{
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 70px;
+    width: 70px
+}
+.logged-btn{
+    float: left;
+    margin-left: 120px;
+    width: 100px;
+    margin-top: 30px;
+    align-content: center;
 }

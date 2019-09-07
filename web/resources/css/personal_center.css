@@ -1,0 +1,83 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2019-9-6, 15:22:57
+    Author     : 67506
+*/
+.first_bar{
+    height: 300px;
+    width: 1000px;
+    background-color: green;
+    float: left;
+    margin-left: 60px;
+    margin-top: 30px;
+}
+.modify_logo{
+    height: 250px;
+    width: 400px;
+    background-color: yellow;
+    float: left;
+    margin-left: 60px;
+    margin-top: 25px;
+}
+.user_logo{
+    float: left;
+    height: 200px;
+    width: 200px;
+    background-color: blue;
+}
+.user_logo img{
+    float: left;
+    height: 200px;
+    width: 200px;
+    border-radius:100px;
+    border:solid rgb(100,100,100) 1px;
+}
+.user_nickname{
+    float:left;
+    margin-left: 30px;
+    margin-top: 50px;
+    height: 20px;
+    width: 150px;
+    background-color: white;
+}
+/*订单状态栏*/
+.state_box{
+    height: 200px;
+    width: 450px;
+    margin-left: 520px;
+    margin-top: 30px;
+}
+.state{
+    float: left;
+    margin-left: 22px;
+    margin-top: 50px;
+    background-color: white;
+    width:80px;
+    height:80px;
+    border-radius:50px;
+    border:solid rgb(100,100,100) 1px;
+}
+.state img{
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 60px;
+    width: 60px
+}
+.text-bar{
+    float:left;
+    width: 350px;
+    height: 30px;
+    margin-left: 35px;
+}
+.state_text{
+    text-decoration: none;
+    float:left;
+    margin-right : 53px;
+    margin-top: 20px;
+    font-size: large;
+    color: white;
+}

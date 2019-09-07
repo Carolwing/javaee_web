@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <head>
+        <title>个人中心</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    </head>
+    <body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="body">
+                <h:outputStylesheet library="css" name="personal_center.css"/>
+                <div class="first_bar">
+                    <div class="modify_logo">
+                        <div class="user_logo">
+                            <h:graphicImage value="#{resource['images:watch.jpg']}"
+                                            alt="logo"/>
+                        </div>
+                        <div class="user_nickname">
+                            <p:outputLabel value="用户名：#{userController.current_user.name}" />
+
+                        </div>
+
+                    </div>
+                    <div class="state_box">
+                        <h:form>
+                            <h:commandLink action="/">
+                                <div class="state">
+                                    <h:graphicImage  value="#{resource['images:daifukuan.png']}" alt="logo"/>      
+                                </div>    
+                            </h:commandLink>
+                        </h:form>
+
+
+                        <h:form>
+                            <h:commandLink action="/">
+                                <div class="state">
+                                    <h:graphicImage  value="#{resource['images:daifahuo.png']}" alt="logo"/>      
+                                </div>    
+                            </h:commandLink>
+                        </h:form>
+
+                        <h:form>
+                            <h:commandLink action="/">
+                                <div class="state">
+                                    <h:graphicImage  value="#{resource['images:daifahuo.png']}" alt="logo"/>      
+                                </div>    
+                            </h:commandLink>
+                        </h:form>
+                        <div class="text-bar">
+                            <span class="state_text">待付款</span>
+                            <span class="state_text">已付款</span>
+                            <span class="state_text">已发货</span>
+                        </div>                       
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
